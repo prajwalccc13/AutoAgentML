@@ -1,0 +1,274 @@
+{
+    "data_info": {
+        "shape": [
+            150,
+            5
+        ],
+        "head": [
+            {
+                "sepal.length": 5.1,
+                "sepal.width": 3.5,
+                "petal.length": 1.4,
+                "petal.width": 0.2,
+                "variety": "Setosa"
+            },
+            {
+                "sepal.length": 4.9,
+                "sepal.width": 3.0,
+                "petal.length": 1.4,
+                "petal.width": 0.2,
+                "variety": "Setosa"
+            },
+            {
+                "sepal.length": 4.7,
+                "sepal.width": 3.2,
+                "petal.length": 1.3,
+                "petal.width": 0.2,
+                "variety": "Setosa"
+            },
+            {
+                "sepal.length": 4.6,
+                "sepal.width": 3.1,
+                "petal.length": 1.5,
+                "petal.width": 0.2,
+                "variety": "Setosa"
+            },
+            {
+                "sepal.length": 5.0,
+                "sepal.width": 3.6,
+                "petal.length": 1.4,
+                "petal.width": 0.2,
+                "variety": "Setosa"
+            }
+        ],
+        "dtypes": {
+            "sepal.length": "float64",
+            "sepal.width": "float64",
+            "petal.length": "float64",
+            "petal.width": "float64",
+            "variety": "object"
+        }
+    },
+    "missing_info": {
+        "sepal.length": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        },
+        "sepal.width": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        },
+        "petal.length": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        },
+        "petal.width": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        },
+        "variety": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        }
+    },
+    "dtype_unique_counts": {
+        "sepal.length": {
+            "dtype": "float64",
+            "unique_count": 35
+        },
+        "sepal.width": {
+            "dtype": "float64",
+            "unique_count": 23
+        },
+        "petal.length": {
+            "dtype": "float64",
+            "unique_count": 43
+        },
+        "petal.width": {
+            "dtype": "float64",
+            "unique_count": 22
+        },
+        "variety": {
+            "dtype": "object",
+            "unique_count": 3
+        }
+    },
+    "numeric_stats": {
+        "sepal.length": {
+            "mean": 5.843333333333334,
+            "median": 5.8,
+            "std": 0.828066127977863,
+            "min": 4.3,
+            "max": 7.9,
+            "25%": 5.1,
+            "50%": 5.8,
+            "75%": 6.4
+        },
+        "sepal.width": {
+            "mean": 3.0573333333333337,
+            "median": 3.0,
+            "std": 0.4358662849366982,
+            "min": 2.0,
+            "max": 4.4,
+            "25%": 2.8,
+            "50%": 3.0,
+            "75%": 3.3
+        },
+        "petal.length": {
+            "mean": 3.7580000000000005,
+            "median": 4.35,
+            "std": 1.7652982332594662,
+            "min": 1.0,
+            "max": 6.9,
+            "25%": 1.6,
+            "50%": 4.35,
+            "75%": 5.1
+        },
+        "petal.width": {
+            "mean": 1.1993333333333336,
+            "median": 1.3,
+            "std": 0.7622376689603465,
+            "min": 0.1,
+            "max": 2.5,
+            "25%": 0.3,
+            "50%": 1.3,
+            "75%": 1.8
+        }
+    },
+    "categorical_stats": {
+        "variety": {
+            "mode": "Setosa",
+            "unique_count": 3
+        }
+    },
+    "categorical_cardinality": {
+        "variety": {
+            "unique_count": 3,
+            "percentage": 2.0
+        }
+    },
+    "outliers_info": {
+        "sepal.length": {
+            "outlier_count": 0
+        },
+        "sepal.width": {
+            "outlier_count": 4
+        },
+        "petal.length": {
+            "outlier_count": 0
+        },
+        "petal.width": {
+            "outlier_count": 0
+        }
+    },
+    "high_missing_cols": [],
+    "correlation_matrix": {
+        "sepal.length": {
+            "sepal.length": 1.0,
+            "sepal.width": -0.11756978413300091,
+            "petal.length": 0.8717537758865838,
+            "petal.width": 0.8179411262715759
+        },
+        "sepal.width": {
+            "sepal.length": -0.11756978413300091,
+            "sepal.width": 1.0,
+            "petal.length": -0.4284401043305387,
+            "petal.width": -0.36612593253643755
+        },
+        "petal.length": {
+            "sepal.length": 0.8717537758865838,
+            "sepal.width": -0.4284401043305387,
+            "petal.length": 1.0,
+            "petal.width": 0.9628654314027961
+        },
+        "petal.width": {
+            "sepal.length": 0.8179411262715759,
+            "sepal.width": -0.36612593253643755,
+            "petal.length": 0.9628654314027961,
+            "petal.width": 1.0
+        }
+    },
+    "high_correlation_pairs": [
+        {
+            "pair": [
+                "sepal.length",
+                "petal.length"
+            ],
+            "correlation": 0.8717537758865838
+        },
+        {
+            "pair": [
+                "sepal.length",
+                "petal.width"
+            ],
+            "correlation": 0.8179411262715759
+        },
+        {
+            "pair": [
+                "petal.length",
+                "petal.width"
+            ],
+            "correlation": 0.9628654314027961
+        }
+    ],
+    "target_distribution": null,
+    "high_cardinality_features": {},
+    "top_categories": {
+        "variety": {
+            "Setosa": 50,
+            "Versicolor": 50,
+            "Virginica": 50
+        }
+    },
+    "duplicated_rows": {
+        "duplicates_count": 1,
+        "sample_indices": [
+            142
+        ]
+    },
+    "data_ranges": {
+        "sepal.length": {
+            "min": 4.3,
+            "max": 7.9
+        },
+        "sepal.width": {
+            "min": 2.0,
+            "max": 4.4
+        },
+        "petal.length": {
+            "min": 1.0,
+            "max": 6.9
+        },
+        "petal.width": {
+            "min": 0.1,
+            "max": 2.5
+        },
+        "variety": {
+            "unique_values": 3
+        }
+    },
+    "missing_percentage": {
+        "sepal.length": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        },
+        "sepal.width": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        },
+        "petal.length": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        },
+        "petal.width": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        },
+        "variety": {
+            "missing_count": 0,
+            "missing_percent": 0.0
+        }
+    },
+    "low_variance_features": {},
+    "data_quality_issues": []
+}
