@@ -1,0 +1,172 @@
+{
+    "dataset_shape": [
+        150,
+        5
+    ],
+    "column_data_types": {
+        "sepal.length": "float64",
+        "sepal.width": "float64",
+        "petal.length": "float64",
+        "petal.width": "float64",
+        "variety": "object"
+    },
+    "missing_value_counts_and_percentages": {
+        "sepal.length": {
+            "missing_count": 0,
+            "missing_percentage": 0.0
+        },
+        "sepal.width": {
+            "missing_count": 0,
+            "missing_percentage": 0.0
+        },
+        "petal.length": {
+            "missing_count": 0,
+            "missing_percentage": 0.0
+        },
+        "petal.width": {
+            "missing_count": 0,
+            "missing_percentage": 0.0
+        },
+        "variety": {
+            "missing_count": 0,
+            "missing_percentage": 0.0
+        }
+    },
+    "numeric_summary_statistics": {
+        "count": {
+            "sepal.length": 150.0,
+            "sepal.width": 150.0,
+            "petal.length": 150.0,
+            "petal.width": 150.0
+        },
+        "mean": {
+            "sepal.length": 5.843333333333334,
+            "sepal.width": 3.0573333333333337,
+            "petal.length": 3.7580000000000005,
+            "petal.width": 1.1993333333333336
+        },
+        "std": {
+            "sepal.length": 0.828066127977863,
+            "sepal.width": 0.4358662849366982,
+            "petal.length": 1.7652982332594662,
+            "petal.width": 0.7622376689603465
+        },
+        "min": {
+            "sepal.length": 4.3,
+            "sepal.width": 2.0,
+            "petal.length": 1.0,
+            "petal.width": 0.1
+        },
+        "25%": {
+            "sepal.length": 5.1,
+            "sepal.width": 2.8,
+            "petal.length": 1.6,
+            "petal.width": 0.3
+        },
+        "50%": {
+            "sepal.length": 5.8,
+            "sepal.width": 3.0,
+            "petal.length": 4.35,
+            "petal.width": 1.3
+        },
+        "75%": {
+            "sepal.length": 6.4,
+            "sepal.width": 3.3,
+            "petal.length": 5.1,
+            "petal.width": 1.8
+        },
+        "max": {
+            "sepal.length": 7.9,
+            "sepal.width": 4.4,
+            "petal.length": 6.9,
+            "petal.width": 2.5
+        },
+        "median": {
+            "sepal.length": 5.8,
+            "sepal.width": 3.0,
+            "petal.length": 4.35,
+            "petal.width": 1.3
+        }
+    },
+    "categorical_summary_statistics": {
+        "variety": {
+            "count": {
+                "Setosa": 50,
+                "Versicolor": 50,
+                "Virginica": 50
+            },
+            "unique": 3,
+            "top": "Setosa",
+            "top_freq": 50
+        }
+    },
+    "column_cardinalities": {
+        "sepal.length": 35,
+        "sepal.width": 23,
+        "petal.length": 43,
+        "petal.width": 22,
+        "variety": 3
+    },
+    "high_missing_value_columns": {},
+    "numeric_outliers": {
+        "sepal.length": {
+            "outlier_count": 0,
+            "outlier_indices": []
+        },
+        "sepal.width": {
+            "outlier_count": 4,
+            "outlier_indices": [
+                15,
+                32,
+                33,
+                60
+            ]
+        },
+        "petal.length": {
+            "outlier_count": 0,
+            "outlier_indices": []
+        },
+        "petal.width": {
+            "outlier_count": 0,
+            "outlier_indices": []
+        }
+    },
+    "categorical_top_categories": {
+        "variety": {
+            "Setosa": 50,
+            "Versicolor": 50,
+            "Virginica": 50
+        }
+    },
+    "low_variance_numeric_columns": [],
+    "numeric_feature_correlation_matrix": [
+        [
+            1.0,
+            -0.11756978413300091,
+            0.8717537758865838,
+            0.8179411262715759
+        ],
+        [
+            -0.11756978413300091,
+            1.0,
+            -0.4284401043305387,
+            -0.36612593253643755
+        ],
+        [
+            0.8717537758865838,
+            -0.4284401043305387,
+            1.0,
+            0.9628654314027961
+        ],
+        [
+            0.8179411262715759,
+            -0.36612593253643755,
+            0.9628654314027961,
+            1.0
+        ]
+    ],
+    "highly_correlated_features_with_target": [],
+    "data_quality_notes": [
+        "Found 1 duplicated rows."
+    ]
+}
