@@ -9,4 +9,18 @@ pip install -r requirements.txt
 
 ## Project Architecture
 
-```p
+```python
+-- agents
+  -- all the agents
+-- data
+  -- store datasets
+-- ml_task_memory
+  -- holds messages and extracted informations
+-- output
+  -- logs, artifcats and code
+  -- view the artifcats by the thread id
+-- utils
+  -- utility functions
+-- tools
+  -- all the custom tools
+```
