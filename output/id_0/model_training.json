@@ -1,0 +1,825 @@
+[
+  {
+    "preprocessing_insights": {
+      "data_types": {},
+      "missing_values": {},
+      "outlier_indices": [],
+      "duplicate_indices": {
+        "count": 2,
+        "indices": [
+          101,
+          142
+        ]
+      },
+      "class_balance": {},
+      "feature_correlations": {},
+      "feature_summary": {}
+    }
+  },
+  {
+    "duplicate_removal": {
+      "cleaned_dataset_path": "./output/id_0/iris_cleaned.csv",
+      "number_of_rows_after_removal": 148,
+      "indices_removed": [
+        101,
+        142
+      ]
+    }
+  },
+  {
+    "missing_value_check": {
+      "missing_value_counts": {},
+      "imputation_required": false,
+      "action": "No imputation required as there are no missing values."
+    }
+  },
+  {
+    "outlier_detection": {
+      "outlier_column": "sepal.width",
+      "outlier_indices": [],
+      "with_outliers_dataset_path": "./output/id_0/iris_outliers_included.csv",
+      "without_outliers_dataset_path": "./output/id_0/iris_outliers_removed.csv",
+      "rows_with_outliers": 148,
+      "rows_without_outliers": 148
+    }
+  },
+  {
+    "feature_selection": {
+      "input_features": [
+        "sepal.length",
+        "sepal.width",
+        "petal.length",
+        "petal.width"
+      ],
+      "target_column": "variety"
+    }
+  },
+  {
+    "feature_correlation_strategies": {
+      "highly_correlated_pairs": [
+        [
+          "petal.length",
+          "petal.width"
+        ]
+      ],
+      "strategy_1_all_features": [
+        "sepal.length",
+        "sepal.width",
+        "petal.length",
+        "petal.width"
+      ],
+      "strategy_2_exclude_petal_length": [
+        "sepal.length",
+        "sepal.width",
+        "petal.width"
+      ]
+    }
+  },
+  {
+    "label_encoding": {
+      "target_column": "variety",
+      "label_mapping": {
+        "Setosa": 0,
+        "Versicolor": 1,
+        "Virginica": 2
+      }
+    }
+  },
+  {
+    "train_test_split": {
+      "train_set_path": "./output/id_0/iris_train.csv",
+      "test_set_path": "./output/id_0/iris_test.csv",
+      "train_rows": 118,
+      "test_rows": 30,
+      "train_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117
+      ],
+      "test_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "class_counts_train": {
+        "Setosa": 40,
+        "Versicolor": 40,
+        "Virginica": 38
+      },
+      "class_counts_test": {
+        "Setosa": 10,
+        "Versicolor": 10,
+        "Virginica": 10
+      }
+    }
+  },
+  {
+    "scaler_parameters": {
+      "mean": [
+        5.821186440677966,
+        3.057627118644068,
+        3.714406779661017,
+        1.1872881355932206
+      ],
+      "std": [
+        0.7917853345998088,
+        0.43616331486116616,
+        1.7246603902359885,
+        0.7581809866405935
+      ],
+      "feature_names": [
+        "sepal.length",
+        "sepal.width",
+        "petal.length",
+        "petal.width"
+      ]
+    }
+  },
+  {
+    "candidate_models": [
+      {
+        "model_name": "LogisticRegression",
+        "library": "sklearn"
+      },
+      {
+        "model_name": "RandomForest",
+        "library": "sklearn"
+      },
+      {
+        "model_name": "XGBClassifier",
+        "library": "xgboost"
+      },
+      {
+        "model_name": "LGBMClassifier",
+        "library": "lightgbm"
+      }
+    ]
+  },
+  {
+    "hyperparameter_search_spaces": {
+      "LogisticRegression": {
+        "C": [
+          0.1,
+          1.0
+        ]
+      },
+      "RandomForest": {
+        "n_estimators": [
+          50,
+          100
+        ],
+        "max_depth": [
+          null,
+          4
+        ]
+      },
+      "XGBClassifier": {
+        "n_estimators": [
+          50
+        ],
+        "max_depth": [
+          3
+        ],
+        "learning_rate": [
+          0.1
+        ]
+      },
+      "LGBMClassifier": {
+        "n_estimators": [
+          50
+        ],
+        "max_depth": [
+          -1
+        ],
+        "learning_rate": [
+          0.1
+        ]
+      }
+    }
+  },
+  {
+    "cv_results": [
+      {
+        "model": "LogisticRegression",
+        "features_used": [
+          "sepal.length",
+          "sepal.width",
+          "petal.length",
+          "petal.width"
+        ],
+        "strategy": "all_features",
+        "cv_metrics": {
+          "cv_accuracy": 0.8893162393162393,
+          "cv_f1_macro": 0.8860922519093434,
+          "cv_log_loss": 0.36929667278204814
+        },
+        "best_hyperparameters": {
+          "C": 1.0
+        }
+      },
+      {
+        "model": "RandomForest",
+        "features_used": [
+          "sepal.length",
+          "sepal.width",
+          "petal.length",
+          "petal.width"
+        ],
+        "strategy": "all_features",
+        "cv_metrics": {
+          "cv_accuracy": 0.9403846153846155,
+          "cv_f1_macro": 0.940025049203793,
+          "cv_log_loss": 0.10024387521838111
+        },
+        "best_hyperparameters": {
+          "n_estimators": 50,
+          "max_depth": null
+        }
+      },
+      {
+        "model": "XGBClassifier",
+        "features_used": [
+          "sepal.length",
+          "sepal.width",
+          "petal.length",
+          "petal.width"
+        ],
+        "strategy": "all_features",
+        "cv_metrics": {
+          "cv_accuracy": 0.9232905982905982,
+          "cv_f1_macro": 0.9212628934851157,
+          "cv_log_loss": 0.214009340341189
+        },
+        "best_hyperparameters": {
+          "n_estimators": 50,
+          "max_depth": 3,
+          "learning_rate": 0.1
+        }
+      },
+      {
+        "model": "LGBMClassifier",
+        "features_used": [
+          "sepal.length",
+          "sepal.width",
+          "petal.length",
+          "petal.width"
+        ],
+        "strategy": "all_features",
+        "cv_metrics": {
+          "cv_accuracy": 0.9147435897435897,
+          "cv_f1_macro": 0.9128961573406018,
+          "cv_log_loss": 0.2186082727332348
+        },
+        "best_hyperparameters": {
+          "n_estimators": 50,
+          "max_depth": -1,
+          "learning_rate": 0.1
+        }
+      },
+      {
+        "model": "LogisticRegression",
+        "features_used": [
+          "sepal.length",
+          "sepal.width",
+          "petal.width"
+        ],
+        "strategy": "exclude_petal.length",
+        "cv_metrics": {
+          "cv_accuracy": 0.8976495726495726,
+          "cv_f1_macro": 0.8943453157179627,
+          "cv_log_loss": 0.3900152036085904
+        },
+        "best_hyperparameters": {
+          "C": 1.0
+        }
+      },
+      {
+        "model": "RandomForest",
+        "features_used": [
+          "sepal.length",
+          "sepal.width",
+          "petal.width"
+        ],
+        "strategy": "exclude_petal.length",
+        "cv_metrics": {
+          "cv_accuracy": 0.9574786324786325,
+          "cv_f1_macro": 0.9565362620918177,
+          "cv_log_loss": 0.47445902290886127
+        },
+        "best_hyperparameters": {
+          "n_estimators": 100,
+          "max_depth": null
+        }
+      },
+      {
+        "model": "XGBClassifier",
+        "features_used": [
+          "sepal.length",
+          "sepal.width",
+          "petal.width"
+        ],
+        "strategy": "exclude_petal.length",
+        "cv_metrics": {
+          "cv_accuracy": 0.9574786324786325,
+          "cv_f1_macro": 0.9565362620918177,
+          "cv_log_loss": 0.16093500274605957
+        },
+        "best_hyperparameters": {
+          "n_estimators": 50,
+          "max_depth": 3,
+          "learning_rate": 0.1
+        }
+      },
+      {
+        "model": "LGBMClassifier",
+        "features_used": [
+          "sepal.length",
+          "sepal.width",
+          "petal.width"
+        ],
+        "strategy": "exclude_petal.length",
+        "cv_metrics": {
+          "cv_accuracy": 0.948931623931624,
+          "cv_f1_macro": 0.9478370975955518,
+          "cv_log_loss": 0.19081833721845307
+        },
+        "best_hyperparameters": {
+          "n_estimators": 50,
+          "max_depth": -1,
+          "learning_rate": 0.1
+        }
+      }
+    ]
+  },
+  {
+    "best_model": {
+      "model": "RandomForest",
+      "features_used": [
+        "sepal.length",
+        "sepal.width",
+        "petal.width"
+      ],
+      "strategy": "exclude_petal.length",
+      "cv_metrics": {
+        "cv_accuracy": 0.9574786324786325,
+        "cv_f1_macro": 0.9565362620918177,
+        "cv_log_loss": 0.47445902290886127
+      },
+      "best_hyperparameters": {
+        "n_estimators": 100,
+        "max_depth": null
+      }
+    }
+  },
+  {
+    "final_model_file": "./output/id_0/final_model.joblib",
+    "trained_model_name": "RandomForest",
+    "trained_model_params": {
+      "n_estimators": 100,
+      "max_depth": null
+    },
+    "features_trained_on": [
+      "sepal.length",
+      "sepal.width",
+      "petal.width"
+    ]
+  },
+  {
+    "test_evaluation": {
+      "test_accuracy": 0.9333333333333333,
+      "test_macro_f1": 0.9333333333333332,
+      "per_class_precision": [
+        1.0,
+        0.9,
+        0.9
+      ],
+      "per_class_recall": [
+        1.0,
+        0.9,
+        0.9
+      ],
+      "per_class_f1": [
+        1.0,
+        0.9,
+        0.9
+      ],
+      "confusion_matrix": [
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          9,
+          1
+        ],
+        [
+          0,
+          1,
+          9
+        ]
+      ],
+      "test_log_loss": 0.2582905552535406
+    }
+  },
+  {
+    "final_artifacts": {
+      "scaler_parameters": {
+        "mean": [
+          5.821186440677966,
+          3.057627118644068,
+          3.714406779661017,
+          1.1872881355932206
+        ],
+        "std": [
+          0.7917853345998088,
+          0.43616331486116616,
+          1.7246603902359885,
+          0.7581809866405935
+        ],
+        "feature_names": [
+          "sepal.length",
+          "sepal.width",
+          "petal.length",
+          "petal.width"
+        ]
+      },
+      "label_mapping": {
+        "Setosa": 0,
+        "Versicolor": 1,
+        "Virginica": 2
+      },
+      "feature_selection_details": {
+        "all_features": [
+          "sepal.length",
+          "sepal.width",
+          "petal.length",
+          "petal.width"
+        ],
+        "dropped_highly_correlated": [
+          "sepal.length",
+          "sepal.width",
+          "petal.width"
+        ],
+        "selected_features": [
+          "sepal.length",
+          "sepal.width",
+          "petal.width"
+        ]
+      },
+      "model_hyperparameters": {
+        "n_estimators": 100,
+        "max_depth": null
+      },
+      "final_model_file": "./output/id_0/final_model.joblib",
+      "train_test_split": {
+        "train_set_path": "./output/id_0/iris_train.csv",
+        "test_set_path": "./output/id_0/iris_test.csv",
+        "train_rows": 118,
+        "test_rows": 30,
+        "train_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117
+        ],
+        "test_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "class_counts_train": {
+          "Setosa": 40,
+          "Versicolor": 40,
+          "Virginica": 38
+        },
+        "class_counts_test": {
+          "Setosa": 10,
+          "Versicolor": 10,
+          "Virginica": 10
+        }
+      },
+      "test_evaluation": {
+        "test_accuracy": 0.9333333333333333,
+        "test_macro_f1": 0.9333333333333332,
+        "per_class_precision": [
+          1.0,
+          0.9,
+          0.9
+        ],
+        "per_class_recall": [
+          1.0,
+          0.9,
+          0.9
+        ],
+        "per_class_f1": [
+          1.0,
+          0.9,
+          0.9
+        ],
+        "confusion_matrix": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            1
+          ],
+          [
+            0,
+            1,
+            9
+          ]
+        ],
+        "test_log_loss": 0.2582905552535406
+      }
+    }
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "data/Crop_Yield_Prediction.csv, data is of type csv, task intent is tabular regression and target column is Yield",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the information. To proceed, I will set the task as full pipeline for regression on your CSV data, with \"Yield\" as the target column. \n\nHere is a summary:\n- Data path: `data/Crop_Yield_Prediction.csv`\n- Data type: `csv`\n- Task type: `regression`\n- Target column: `Yield`\n- Task intent: `full_pipeline`\n- Agents to call: `[\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]`\n\nPlease confirm if this is correct or let me know if you'd like any adjustments.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 122,
+          "prompt_tokens": 442,
+          "total_tokens": 564,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjL8cqAjCgYSYafWCgYtFKxCDmyok",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--a22b3411-ae04-47b4-bfdd-8d7673d9feea-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 442,
+        "output_tokens": 122,
+        "total_tokens": 564,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  }
+]

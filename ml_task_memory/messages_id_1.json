@@ -1,0 +1,128 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "data/banana_quality.csv, data is of type csv, tabular classification and target column is Quality, full pipeline",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the details. To proceed, I will confirm and compile the information:\n\n- Data path: `data/banana_quality.csv`\n- Data type: `csv`\n- Task type: `classification`\n- Target column: `Quality`\n- Task intent: `full_pipeline`\n\nI will now prepare the agents for the full pipeline accordingly.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 69,
+          "prompt_tokens": 438,
+          "total_tokens": 507,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjMtWiUq4tn7cYyyroiZHUbEIaHVA",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--af75fc37-e597-4047-b33c-1498d8a7eea5-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 438,
+        "output_tokens": 69,
+        "total_tokens": 507,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you. Here are the details:\n\n- Data path: `data/banana_quality.csv`\n- Data type: `csv`\n- Task type: `classification`\n- Target column: `Quality`\n- Task intent: `full_pipeline`\n- Agents to call: `[\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]`\n\nI will now initiate the full pipeline setup.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 79,
+          "prompt_tokens": 516,
+          "total_tokens": 595,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjN2IUSOwVknqcyQawC9AxJJGTAO3",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--728a0750-7a2e-4a70-88ae-1ac98b9c0cee-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 516,
+        "output_tokens": 79,
+        "total_tokens": 595,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  }
+]

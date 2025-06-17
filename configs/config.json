@@ -1,0 +1,9 @@
+{
+    "openai_api_key": "***REMOVED-LEAKED-API-KEY***",
+    "openai_model_name": "gpt-4.1",
+    "available_agents": [
+        "EDAAgent",
+        "FeatureEngineeringAgent",
+        "ModelTrainingAgent"
+    ]
+}

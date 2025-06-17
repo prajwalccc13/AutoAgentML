@@ -1,0 +1,15 @@
+{
+  "session_id": "5",
+  "dataset_path": "data/Crop_Yield_Prediction.csv",
+  "target_column": "Yield",
+  "task_intent": "tabular regression",
+  "agents_to_call": [
+    "EDAAgent",
+    "FeatureEngineeringAgent",
+    "ModelTrainingAgent"
+  ],
+  "model_type": "auto",
+  "metrics": "auto",
+  "status": "init",
+  "timestamp": null
+}

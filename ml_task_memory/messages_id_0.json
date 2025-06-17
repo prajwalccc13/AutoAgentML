@@ -1,0 +1,128 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "data/iris.csv, data is of type csv, classification and target column is variety, full pipeline",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the information. To confirm:\n\n- Data path: `data/iris.csv`\n- Data type: CSV\n- Task type: Classification\n- Target column: variety\n- Intent: Full pipeline\n\nI will proceed with setting up the full pipeline.  \nPlease wait while I prepare the necessary steps.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 63,
+          "prompt_tokens": 435,
+          "total_tokens": 498,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjMiCoEndTDqIPRt3UHS3nFrWi38D",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--279898c4-878f-4626-9883-cd478d2c9921-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 435,
+        "output_tokens": 63,
+        "total_tokens": 498,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Understood.  \nHere are the details:\n\n- `data_path`: data/iris.csv  \n- `data_type`: csv  \n- `task_type`: classification  \n- `target_column`: variety  \n- `task_intent`: full_pipeline  \n- `agents_to_call`: [\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]\n\nProceeding with your pipeline setup.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 77,
+          "prompt_tokens": 507,
+          "total_tokens": 584,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjMoZgZPY5f2OzJmWyM67lzscAbXW",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--41223b20-5252-4400-b6d6-426d05091c44-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 507,
+        "output_tokens": 77,
+        "total_tokens": 584,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  }
+]

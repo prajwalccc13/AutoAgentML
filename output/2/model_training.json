@@ -1,0 +1,508 @@
+{
+    "eda_summary": {
+        "data_types": {},
+        "missing_values": {},
+        "cardinality": {},
+        "outliers": {},
+        "distribution_summaries": {},
+        "overall_dataset_info": {},
+        "column_insights": {},
+        "recommendations": {}
+    },
+    "raw_data_status": {
+        "shape": [
+            8000,
+            8
+        ],
+        "columns": [
+            "Size",
+            "Weight",
+            "Sweetness",
+            "Softness",
+            "HarvestTime",
+            "Ripeness",
+            "Acidity",
+            "Quality"
+        ],
+        "dtypes": {
+            "Size": "float64",
+            "Weight": "float64",
+            "Sweetness": "float64",
+            "Softness": "float64",
+            "HarvestTime": "float64",
+            "Ripeness": "float64",
+            "Acidity": "float64",
+            "Quality": "object"
+        },
+        "head": [
+            {
+                "Size": -1.9249682,
+                "Weight": 0.46807805,
+                "Sweetness": 3.0778325,
+                "Softness": -1.4721768,
+                "HarvestTime": 0.2947986,
+                "Ripeness": 2.4355695,
+                "Acidity": 0.27129033,
+                "Quality": "Good"
+            },
+            {
+                "Size": -2.4097514,
+                "Weight": 0.48686993,
+                "Sweetness": 0.34692144,
+                "Softness": -2.4950993,
+                "HarvestTime": -0.8922133,
+                "Ripeness": 2.0675488,
+                "Acidity": 0.30732512,
+                "Quality": "Good"
+            },
+            {
+                "Size": -0.3576066,
+                "Weight": 1.4831762,
+                "Sweetness": 1.5684522,
+                "Softness": -2.6451454,
+                "HarvestTime": -0.64726734,
+                "Ripeness": 3.0906434,
+                "Acidity": 1.427322,
+                "Quality": "Good"
+            }
+        ],
+        "value_counts_quality": {
+            "Good": 4006,
+            "Bad": 3994
+        }
+    },
+    "outlier_treatment": {
+        "method": "Capped using 1.5*IQR rule.",
+        "outlier_info_by_column": {
+            "Size": {
+                "n_outliers": 36,
+                "outlier_indices": [
+                    2230,
+                    2347,
+                    3252,
+                    3515,
+                    4031
+                ]
+            },
+            "Weight": {
+                "n_outliers": 3,
+                "outlier_indices": [
+                    686,
+                    6660,
+                    7655
+                ]
+            },
+            "Sweetness": {
+                "n_outliers": 178,
+                "outlier_indices": [
+                    7,
+                    27,
+                    30,
+                    40,
+                    53
+                ]
+            },
+            "Softness": {
+                "n_outliers": 9,
+                "outlier_indices": [
+                    916,
+                    2077,
+                    2393,
+                    2618,
+                    3065
+                ]
+            },
+            "HarvestTime": {
+                "n_outliers": 58,
+                "outlier_indices": [
+                    2207,
+                    2229,
+                    2283,
+                    2347,
+                    2693
+                ]
+            },
+            "Ripeness": {
+                "n_outliers": 58,
+                "outlier_indices": [
+                    1841,
+                    2041,
+                    3639,
+                    4026,
+                    4543
+                ]
+            },
+            "Acidity": {
+                "n_outliers": 17,
+                "outlier_indices": [
+                    4108,
+                    4419,
+                    4520,
+                    4543,
+                    4603
+                ]
+            }
+        },
+        "original_shape": [
+            8000,
+            8
+        ],
+        "cleaned_shape": [
+            8000,
+            8
+        ],
+        "removed_records_count": 0
+    },
+    "missing_value_treatment": {
+        "missing_counts": {
+            "Size": 0,
+            "Weight": 0,
+            "Sweetness": 0,
+            "Softness": 0,
+            "HarvestTime": 0,
+            "Ripeness": 0,
+            "Acidity": 0,
+            "Quality": 0
+        },
+        "decision": "No imputation performed as EDA and verification show zero missing values."
+    },
+    "target_encoding": {
+        "encoding_mapping": {
+            "Bad": 0,
+            "Good": 1
+        },
+        "class_value_counts": {
+            "1": 4006,
+            "0": 3994
+        }
+    },
+    "feature_selection": {
+        "selected_features": [
+            "Size",
+            "Weight",
+            "Sweetness",
+            "Softness",
+            "HarvestTime",
+            "Ripeness",
+            "Acidity"
+        ],
+        "data_types": {
+            "Size": "float64",
+            "Weight": "float64",
+            "Sweetness": "float64",
+            "Softness": "float64",
+            "HarvestTime": "float64",
+            "Ripeness": "float64",
+            "Acidity": "float64"
+        },
+        "target_column": "Quality_encoded"
+    },
+    "train_test_split": {
+        "train_shape": [
+            6400,
+            7
+        ],
+        "test_shape": [
+            1600,
+            7
+        ],
+        "train_target_distribution": {
+            "1": 0.50078125,
+            "0": 0.49921875
+        },
+        "test_target_distribution": {
+            "1": 0.500625,
+            "0": 0.499375
+        }
+    },
+    "feature_scaling": {
+        "scaler": "StandardScaler",
+        "fit_on": "Training data",
+        "feature_stats_pre_scaling": {
+            "train": {
+                "Size": {
+                    "mean": -0.7696885485259644,
+                    "std": 2.1243823035010396
+                },
+                "Weight": {
+                    "mean": -0.7664340294796328,
+                    "std": 2.0114942391924293
+                },
+                "Sweetness": {
+                    "mean": -0.7786431440828001,
+                    "std": 1.9000242300694927
+                },
+                "Softness": {
+                    "mean": -0.03066868891127656,
+                    "std": 2.0704244168900887
+                },
+                "HarvestTime": {
+                    "mean": -0.768188852757261,
+                    "std": 1.9802459369520322
+                },
+                "Ripeness": {
+                    "mean": 0.8047381623145391,
+                    "std": 2.0954714397488075
+                },
+                "Acidity": {
+                    "mean": -0.004859394395637503,
+                    "std": 2.2851395414012297
+                }
+            },
+            "test": {
+                "Size": {
+                    "mean": -0.6714497098055375,
+                    "std": 2.1394583634850983
+                },
+                "Weight": {
+                    "mean": -0.738400457263625,
+                    "std": 2.029336016355368
+                },
+                "Sweetness": {
+                    "mean": -0.8150549224157626,
+                    "std": 1.919920197325312
+                },
+                "Softness": {
+                    "mean": 0.04982299561787501,
+                    "std": 2.0347521785160594
+                },
+                "HarvestTime": {
+                    "mean": -0.6928268681783126,
+                    "std": 2.005844797792226
+                },
+                "Ripeness": {
+                    "mean": 0.7038342271191874,
+                    "std": 2.1252166509636594
+                },
+                "Acidity": {
+                    "mean": 0.06980534842812498,
+                    "std": 2.3024311885877005
+                }
+            }
+        },
+        "feature_stats_post_scaling": {
+            "train": {
+                "Size": {
+                    "mean": -3.0531133177191805e-18,
+                    "std": 1.0
+                },
+                "Weight": {
+                    "mean": -4.996003610813204e-18,
+                    "std": 1.0
+                },
+                "Sweetness": {
+                    "mean": 4.9960036108132046e-17,
+                    "std": 1.0
+                },
+                "Softness": {
+                    "mean": -1.0547118733938987e-17,
+                    "std": 1.0
+                },
+                "HarvestTime": {
+                    "mean": 4.4131365228849975e-17,
+                    "std": 1.0
+                },
+                "Ripeness": {
+                    "mean": -1.9984014443252817e-17,
+                    "std": 1.0
+                },
+                "Acidity": {
+                    "mean": 2.1094237467877975e-17,
+                    "std": 1.0
+                }
+            },
+            "test": {
+                "Size": {
+                    "mean": 0.046247097034893166,
+                    "std": 1.006860576484006
+                },
+                "Weight": {
+                    "mean": 0.013937779213715947,
+                    "std": 1.0086333935736678
+                },
+                "Sweetness": {
+                    "mean": -0.019165346820453965,
+                    "std": 1.010234534154999
+                },
+                "Softness": {
+                    "mean": 0.038879938346137684,
+                    "std": 0.9825401673375852
+                },
+                "HarvestTime": {
+                    "mean": 0.038059854848155085,
+                    "std": 1.0126896421837197
+                },
+                "Ripeness": {
+                    "mean": -0.048157095976125,
+                    "std": 1.0139572302274433
+                },
+                "Acidity": {
+                    "mean": 0.03267659385241453,
+                    "std": 1.0073307852626312
+                }
+            }
+        }
+    },
+    "model_training_results": {
+        "LogisticRegression": {
+            "model_type": "LogisticRegression",
+            "best_params": {
+                "C": 0.01
+            },
+            "mean_cv_f1": 0.8795092905670201,
+            "cv_metrics": {
+                "best_params": {
+                    "C": 0.01
+                },
+                "cv_results": {
+                    "mean_test_score": 0.878478255389209,
+                    "std_test_score": 0.0005997606669783755
+                },
+                "training_metrics": {
+                    "accuracy": 0.8796875,
+                    "precision": 0.8740399385560675,
+                    "recall": 0.8876755070202809,
+                    "f1_score": 0.8808049535603715,
+                    "roc_auc": 0.9495395252429815
+                }
+            },
+            "model_path": "./output/2/model_logreg.pkl"
+        },
+        "RandomForest": {
+            "model_type": "RandomForest",
+            "best_params": {
+                "max_depth": null,
+                "min_samples_split": 2,
+                "n_estimators": 100
+            },
+            "mean_cv_f1": 0.9706279783105807,
+            "cv_metrics": {
+                "best_params": {
+                    "max_depth": null,
+                    "min_samples_split": 2,
+                    "n_estimators": 100
+                },
+                "cv_results": {
+                    "mean_test_score": 0.9588996281394541,
+                    "std_test_score": 0.013045254943142254
+                },
+                "training_metrics": {
+                    "accuracy": 1.0,
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1_score": 1.0,
+                    "roc_auc": 1.0
+                }
+            },
+            "model_path": "./output/2/model_rf.pkl"
+        },
+        "XGBoost": {
+            "model_type": "XGBoost",
+            "best_params": {
+                "learning_rate": 0.1,
+                "max_depth": 6,
+                "n_estimators": 100
+            },
+            "mean_cv_f1": 0.9688504650910137,
+            "cv_metrics": {
+                "best_params": {
+                    "learning_rate": 0.1,
+                    "max_depth": 6,
+                    "n_estimators": 100
+                },
+                "cv_results": {
+                    "mean_test_score": 0.9555118444984636,
+                    "std_test_score": 0.010234865230298271
+                },
+                "training_metrics": {
+                    "accuracy": 0.98796875,
+                    "precision": 0.9912060301507538,
+                    "recall": 0.9847113884555382,
+                    "f1_score": 0.9879480356863359,
+                    "roc_auc": 0.998859567528241
+                }
+            },
+            "model_path": "./output/2/model_xgb.pkl"
+        }
+    },
+    "test_set_evaluation": {
+        "LogisticRegression": {
+            "accuracy": 0.873125,
+            "precision": 0.8559523809523809,
+            "recall": 0.8976279650436954,
+            "f1_score": 0.8762949421084705,
+            "roc_auc": 0.9439092873582614,
+            "predicted_class_distribution": {
+                "1": 840,
+                "0": 760
+            }
+        },
+        "RandomForest": {
+            "accuracy": 0.9675,
+            "precision": 0.9675405742821473,
+            "recall": 0.9675405742821473,
+            "f1_score": 0.9675405742821473,
+            "roc_auc": 0.991969518702373,
+            "predicted_class_distribution": {
+                "1": 801,
+                "0": 799
+            }
+        },
+        "XGBoost": {
+            "accuracy": 0.96375,
+            "precision": 0.9649561952440551,
+            "recall": 0.9625468164794008,
+            "f1_score": 0.96375,
+            "roc_auc": 0.9913874865429476,
+            "predicted_class_distribution": {
+                "0": 801,
+                "1": 799
+            }
+        }
+    },
+    "final_model_selection": {
+        "winning_model": "RandomForest",
+        "winning_model_path": "./output/2/model_rf.pkl",
+        "selection_rationale": "Highest combined F1-score and ROC-AUC on test set among all candidates.",
+        "winning_test_metrics": {
+            "accuracy": 0.9675,
+            "precision": 0.9675405742821473,
+            "recall": 0.9675405742821473,
+            "f1_score": 0.9675405742821473,
+            "roc_auc": 0.991969518702373,
+            "predicted_class_distribution": {
+                "1": 801,
+                "0": 799
+            }
+        }
+    },
+    "pipeline_outputs": {
+        "steps": [
+            "EDA Summary Logged",
+            "Raw dataset loaded and logged",
+            "Capped outliers using 1.5*IQR rule",
+            "Checked for missing values, no imputations performed",
+            "Encoded target Quality using label encoding",
+            "Features selected: ['Size', 'Weight', 'Sweetness', 'Softness', 'HarvestTime', 'Ripeness', 'Acidity']",
+            "Train-test split (80/20), stratified",
+            "Standardized numeric features with StandardScaler",
+            "Model training and tuning: Logistic Regression, Random Forest, XGBoost (if available)",
+            "Evaluation on held-out test set",
+            "Best model selected: RandomForest"
+        ],
+        "files": {
+            "eda_summary": "./output/2/eda_agent.json",
+            "cleaned_data": "./output/2/cleaned_data.csv",
+            "train_data": "./output/2/train_data.csv",
+            "test_data": "./output/2/test_data.csv",
+            "scaler_params": "./output/2/scaler_params.json",
+            "model_logreg": "./output/2/model_logreg.pkl",
+            "model_rf": "./output/2/model_rf.pkl",
+            "model_xgb": "./output/2/model_xgb.pkl",
+            "predictions_logreg": "./output/2/predictions_logreg.csv",
+            "predictions_rf": "./output/2/predictions_rf.csv",
+            "predictions_xgb": "./output/2/predictions_xgb.csv",
+            "model_training_json": "./output/2/model_training.json"
+        }
+    }
+}

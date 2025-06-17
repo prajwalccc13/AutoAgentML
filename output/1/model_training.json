@@ -1,0 +1,2070 @@
+{
+  "eda_summary": {
+    "dataset_metadata": {
+      "n_rows": 150,
+      "n_columns": 5,
+      "column_names": [
+        "sepal.length",
+        "sepal.width",
+        "petal.length",
+        "petal.width",
+        "variety"
+      ],
+      "dtypes": {
+        "sepal.length": "float64",
+        "sepal.width": "float64",
+        "petal.length": "float64",
+        "petal.width": "float64",
+        "variety": "object"
+      }
+    },
+    "missing_values": {
+      "missing_values": {
+        "sepal.length": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "sepal.width": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "petal.length": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "petal.width": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "variety": {
+          "count": 0,
+          "percentage": 0.0
+        }
+      },
+      "overall_percentage": 0.0
+    },
+    "feature_types": {
+      "sepal.length": "numerical",
+      "sepal.width": "numerical",
+      "petal.length": "numerical",
+      "petal.width": "numerical",
+      "variety": "categorical"
+    },
+    "numerical_stats": {
+      "sepal.length": {
+        "mean": 5.843333333333334,
+        "median": 5.8,
+        "std": 0.828066127977863,
+        "min": 4.3,
+        "max": 7.9,
+        "quartiles": {
+          "q1": 5.1,
+          "q2": 5.8,
+          "q3": 6.4
+        }
+      },
+      "sepal.width": {
+        "mean": 3.0573333333333337,
+        "median": 3.0,
+        "std": 0.4358662849366982,
+        "min": 2.0,
+        "max": 4.4,
+        "quartiles": {
+          "q1": 2.8,
+          "q2": 3.0,
+          "q3": 3.3
+        }
+      },
+      "petal.length": {
+        "mean": 3.7580000000000005,
+        "median": 4.35,
+        "std": 1.7652982332594662,
+        "min": 1.0,
+        "max": 6.9,
+        "quartiles": {
+          "q1": 1.6,
+          "q2": 4.35,
+          "q3": 5.1
+        }
+      },
+      "petal.width": {
+        "mean": 1.1993333333333336,
+        "median": 1.3,
+        "std": 0.7622376689603465,
+        "min": 0.1,
+        "max": 2.5,
+        "quartiles": {
+          "q1": 0.3,
+          "q2": 1.3,
+          "q3": 1.8
+        }
+      }
+    },
+    "categorical_stats": {
+      "variety": {
+        "unique_values": [
+          "Setosa",
+          "Versicolor",
+          "Virginica"
+        ],
+        "num_unique_values": 3,
+        "value_counts": {
+          "Setosa": 50,
+          "Versicolor": 50,
+          "Virginica": 50
+        }
+      }
+    },
+    "categorical_cardinality": {
+      "cardinality": {
+        "variety": 3
+      },
+      "high_cardinality_columns": []
+    },
+    "outliers": {
+      "IQR_method": {
+        "sepal.length": [],
+        "sepal.width": [
+          15,
+          32,
+          33,
+          60
+        ],
+        "petal.length": [],
+        "petal.width": []
+      },
+      "zscore_method": {
+        "sepal.length": [],
+        "sepal.width": [
+          15
+        ],
+        "petal.length": [],
+        "petal.width": []
+      }
+    },
+    "correlation": {
+      "pearson_correlation_matrix": {
+        "sepal.length": {
+          "sepal.length": 1.0,
+          "sepal.width": -0.11756978413300091,
+          "petal.length": 0.8717537758865838,
+          "petal.width": 0.8179411262715759
+        },
+        "sepal.width": {
+          "sepal.length": -0.11756978413300091,
+          "sepal.width": 1.0,
+          "petal.length": -0.4284401043305387,
+          "petal.width": -0.36612593253643755
+        },
+        "petal.length": {
+          "sepal.length": 0.8717537758865838,
+          "sepal.width": -0.4284401043305387,
+          "petal.length": 1.0,
+          "petal.width": 0.9628654314027961
+        },
+        "petal.width": {
+          "sepal.length": 0.8179411262715759,
+          "sepal.width": -0.36612593253643755,
+          "petal.length": 0.9628654314027961,
+          "petal.width": 1.0
+        }
+      },
+      "high_correlation_pairs_abs_gt_0.8": [
+        {
+          "pair": [
+            "petal.length",
+            "sepal.length"
+          ],
+          "corr": 0.8717537758865838
+        },
+        {
+          "pair": [
+            "petal.width",
+            "sepal.length"
+          ],
+          "corr": 0.8179411262715759
+        },
+        {
+          "pair": [
+            "petal.length",
+            "petal.width"
+          ],
+          "corr": 0.9628654314027961
+        }
+      ]
+    },
+    "numerical_histograms": {
+      "sepal.length": {
+        "bin_edges": [
+          4.3,
+          4.66,
+          5.02,
+          5.38,
+          5.74,
+          6.1,
+          6.46,
+          6.82,
+          7.18,
+          7.54,
+          7.9
+        ],
+        "counts": [
+          9,
+          23,
+          14,
+          27,
+          16,
+          26,
+          18,
+          6,
+          5,
+          6
+        ]
+      },
+      "sepal.width": {
+        "bin_edges": [
+          2.0,
+          2.24,
+          2.48,
+          2.72,
+          2.96,
+          3.2,
+          3.4400000000000004,
+          3.6800000000000006,
+          3.9200000000000004,
+          4.16,
+          4.4
+        ],
+        "counts": [
+          4,
+          7,
+          22,
+          24,
+          37,
+          31,
+          10,
+          11,
+          2,
+          2
+        ]
+      },
+      "petal.length": {
+        "bin_edges": [
+          1.0,
+          1.59,
+          2.18,
+          2.7700000000000005,
+          3.3600000000000003,
+          3.95,
+          4.540000000000001,
+          5.130000000000001,
+          5.720000000000001,
+          6.3100000000000005,
+          6.9
+        ],
+        "counts": [
+          37,
+          13,
+          0,
+          3,
+          8,
+          26,
+          29,
+          18,
+          11,
+          5
+        ]
+      },
+      "petal.width": {
+        "bin_edges": [
+          0.1,
+          0.33999999999999997,
+          0.58,
+          0.82,
+          1.06,
+          1.3,
+          1.54,
+          1.78,
+          2.02,
+          2.2600000000000002,
+          2.5
+        ],
+        "counts": [
+          41,
+          8,
+          1,
+          7,
+          8,
+          33,
+          6,
+          23,
+          9,
+          14
+        ]
+      }
+    },
+    "rare_classes_and_imbalance": {
+      "variety": {
+        "rare_classes": [],
+        "rare_classes_proportion": {},
+        "missing_proportion": 0.0,
+        "class_imbalance_summary": {
+          "class_proportions": {
+            "Setosa": 0.3333333333333333,
+            "Versicolor": 0.3333333333333333,
+            "Virginica": 0.3333333333333333
+          },
+          "min_class_proportion": 0.3333333333333333,
+          "max_class_proportion": 0.3333333333333333,
+          "imbalance_ratio": 1.0
+        }
+      }
+    },
+    "recommended_features": {
+      "flags": {
+        "sepal.length": {
+          "high_missing": false,
+          "high_cardinality": false,
+          "high_correlation": true
+        },
+        "sepal.width": {
+          "high_missing": false,
+          "high_cardinality": false,
+          "high_correlation": false
+        },
+        "petal.length": {
+          "high_missing": false,
+          "high_cardinality": false,
+          "high_correlation": true
+        },
+        "petal.width": {
+          "high_missing": false,
+          "high_cardinality": false,
+          "high_correlation": true
+        },
+        "variety": {
+          "high_missing": false,
+          "high_cardinality": false,
+          "high_correlation": false
+        }
+      },
+      "recommended_features": [
+        "sepal.width"
+      ]
+    }
+  },
+  "data_parameters": {
+    "shape": [
+      150,
+      5
+    ],
+    "columns": [
+      "sepal.length",
+      "sepal.width",
+      "petal.length",
+      "petal.width",
+      "variety"
+    ]
+  },
+  "data_cleaning": [
+    "No missing values found.",
+    "High cardinality columns identified: ['sepal.length', 'petal.length']",
+    "Column 'sepal.length' dropped due to high cardinality.",
+    "Column 'petal.length' dropped due to high cardinality."
+  ],
+  "feature_sets": {
+    "sepal_width_only": [
+      "sepal.width"
+    ],
+    "all_numerical": [
+      "sepal.width",
+      "petal.width"
+    ],
+    "all_except_sepal_width": [
+      "petal.width"
+    ]
+  },
+  "target_encoding": {
+    "classes": [
+      "Setosa",
+      "Versicolor",
+      "Virginica"
+    ],
+    "mapping": {
+      "0": "Setosa",
+      "1": "Versicolor",
+      "2": "Virginica"
+    }
+  },
+  "scaler_params": {
+    "sepal_width_only": {
+      "sepal.width": {
+        "mean": 3.0573333333333337,
+        "std": 0.4344109677354946
+      }
+    },
+    "all_numerical": {
+      "sepal.width": {
+        "mean": 3.0573333333333337,
+        "std": 0.4344109677354946
+      },
+      "petal.width": {
+        "mean": 1.1993333333333336,
+        "std": 0.7596926279021594
+      }
+    },
+    "all_except_sepal_width": {
+      "petal.width": {
+        "mean": 1.1993333333333336,
+        "std": 0.7596926279021594
+      }
+    }
+  },
+  "split_metadata": {
+    "train_indices": [
+      8,
+      106,
+      76,
+      9,
+      89,
+      146,
+      94,
+      133,
+      135,
+      117,
+      105,
+      78,
+      60,
+      67,
+      92,
+      29,
+      19,
+      108,
+      137,
+      31,
+      72,
+      46,
+      131,
+      25,
+      81,
+      103,
+      111,
+      26,
+      121,
+      40,
+      21,
+      71,
+      91,
+      15,
+      139,
+      148,
+      79,
+      59,
+      144,
+      70,
+      6,
+      50,
+      16,
+      130,
+      1,
+      17,
+      101,
+      35,
+      41,
+      12,
+      45,
+      64,
+      100,
+      55,
+      0,
+      149,
+      99,
+      136,
+      47,
+      142,
+      36,
+      53,
+      113,
+      24,
+      83,
+      90,
+      122,
+      66,
+      54,
+      115,
+      39,
+      23,
+      4,
+      119,
+      82,
+      129,
+      80,
+      145,
+      123,
+      85,
+      34,
+      114,
+      68,
+      43,
+      120,
+      32,
+      109,
+      98,
+      86,
+      30,
+      97,
+      110,
+      44,
+      13,
+      124,
+      118,
+      112,
+      87,
+      126,
+      5,
+      143,
+      96,
+      125,
+      102,
+      48,
+      74,
+      73,
+      95,
+      88,
+      65,
+      27,
+      128,
+      62,
+      61,
+      11,
+      37,
+      2,
+      33,
+      52,
+      3
+    ],
+    "test_indices": [
+      38,
+      127,
+      57,
+      93,
+      42,
+      56,
+      22,
+      20,
+      147,
+      84,
+      107,
+      141,
+      104,
+      51,
+      7,
+      49,
+      14,
+      69,
+      63,
+      138,
+      10,
+      140,
+      58,
+      134,
+      132,
+      77,
+      75,
+      18,
+      116,
+      28
+    ],
+    "train_size": 120,
+    "test_size": 30,
+    "stratify": true
+  },
+  "model_training": {
+    "sepal_width_only": {
+      "logistic_regression": {
+        "hyperparameters": {
+          "C": 1.0,
+          "class_weight": null,
+          "dual": false,
+          "fit_intercept": true,
+          "intercept_scaling": 1,
+          "l1_ratio": null,
+          "max_iter": 200,
+          "multi_class": "deprecated",
+          "n_jobs": null,
+          "penalty": "l2",
+          "random_state": 42,
+          "solver": "lbfgs",
+          "tol": 0.0001,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "cv_scores": [
+          0.5416666666666666,
+          0.6666666666666666,
+          0.4583333333333333,
+          0.375,
+          0.5833333333333334
+        ],
+        "mean_cv_accuracy": 0.525,
+        "std_cv_accuracy": 0.10069204977995476
+      },
+      "decision_tree": {
+        "hyperparameters": {
+          "ccp_alpha": 0.0,
+          "class_weight": null,
+          "criterion": "gini",
+          "max_depth": null,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 1,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "random_state": 42,
+          "splitter": "best"
+        },
+        "cv_scores": [
+          0.5833333333333334,
+          0.2916666666666667,
+          0.4166666666666667,
+          0.4583333333333333,
+          0.3333333333333333
+        ],
+        "mean_cv_accuracy": 0.4166666666666667,
+        "std_cv_accuracy": 0.10206207261596575
+      },
+      "random_forest": {
+        "hyperparameters": {
+          "bootstrap": true,
+          "ccp_alpha": 0.0,
+          "class_weight": null,
+          "criterion": "gini",
+          "max_depth": null,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 1,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 100,
+          "n_jobs": null,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "cv_scores": [
+          0.5416666666666666,
+          0.3333333333333333,
+          0.4583333333333333,
+          0.5,
+          0.4166666666666667
+        ],
+        "mean_cv_accuracy": 0.45,
+        "std_cv_accuracy": 0.07168604389202189
+      }
+    },
+    "all_numerical": {
+      "logistic_regression": {
+        "hyperparameters": {
+          "C": 1.0,
+          "class_weight": null,
+          "dual": false,
+          "fit_intercept": true,
+          "intercept_scaling": 1,
+          "l1_ratio": null,
+          "max_iter": 200,
+          "multi_class": "deprecated",
+          "n_jobs": null,
+          "penalty": "l2",
+          "random_state": 42,
+          "solver": "lbfgs",
+          "tol": 0.0001,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "cv_scores": [
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9583333333333334
+        ],
+        "mean_cv_accuracy": 0.9583333333333334,
+        "std_cv_accuracy": 0.0
+      },
+      "decision_tree": {
+        "hyperparameters": {
+          "ccp_alpha": 0.0,
+          "class_weight": null,
+          "criterion": "gini",
+          "max_depth": null,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 1,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "random_state": 42,
+          "splitter": "best"
+        },
+        "cv_scores": [
+          0.7916666666666666,
+          0.875,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9166666666666666
+        ],
+        "mean_cv_accuracy": 0.9,
+        "std_cv_accuracy": 0.06236095644623238
+      },
+      "random_forest": {
+        "hyperparameters": {
+          "bootstrap": true,
+          "ccp_alpha": 0.0,
+          "class_weight": null,
+          "criterion": "gini",
+          "max_depth": null,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 1,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 100,
+          "n_jobs": null,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "cv_scores": [
+          0.9166666666666666,
+          0.875,
+          0.9583333333333334,
+          0.9583333333333334,
+          0.9166666666666666
+        ],
+        "mean_cv_accuracy": 0.925,
+        "std_cv_accuracy": 0.0311804782231162
+      }
+    },
+    "all_except_sepal_width": {
+      "logistic_regression": {
+        "hyperparameters": {
+          "C": 1.0,
+          "class_weight": null,
+          "dual": false,
+          "fit_intercept": true,
+          "intercept_scaling": 1,
+          "l1_ratio": null,
+          "max_iter": 200,
+          "multi_class": "deprecated",
+          "n_jobs": null,
+          "penalty": "l2",
+          "random_state": 42,
+          "solver": "lbfgs",
+          "tol": 0.0001,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "cv_scores": [
+          0.9583333333333334,
+          0.9583333333333334,
+          1.0,
+          0.9583333333333334,
+          0.9583333333333334
+        ],
+        "mean_cv_accuracy": 0.9666666666666668,
+        "std_cv_accuracy": 0.016666666666666653
+      },
+      "decision_tree": {
+        "hyperparameters": {
+          "ccp_alpha": 0.0,
+          "class_weight": null,
+          "criterion": "gini",
+          "max_depth": null,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 1,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "random_state": 42,
+          "splitter": "best"
+        },
+        "cv_scores": [
+          0.9583333333333334,
+          0.9583333333333334,
+          1.0,
+          0.9583333333333334,
+          0.9583333333333334
+        ],
+        "mean_cv_accuracy": 0.9666666666666668,
+        "std_cv_accuracy": 0.016666666666666653
+      },
+      "random_forest": {
+        "hyperparameters": {
+          "bootstrap": true,
+          "ccp_alpha": 0.0,
+          "class_weight": null,
+          "criterion": "gini",
+          "max_depth": null,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 1,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 100,
+          "n_jobs": null,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "cv_scores": [
+          0.9583333333333334,
+          0.9583333333333334,
+          1.0,
+          0.9583333333333334,
+          0.9583333333333334
+        ],
+        "mean_cv_accuracy": 0.9666666666666668,
+        "std_cv_accuracy": 0.016666666666666653
+      }
+    }
+  },
+  "evaluation": {
+    "sepal_width_only": {
+      "logistic_regression": {
+        "accuracy": 0.6666666666666666,
+        "precision": 0.6632034632034632,
+        "recall": 0.6666666666666666,
+        "f1_score": 0.6412698412698412,
+        "confusion_matrix": [
+          [
+            9,
+            0,
+            1
+          ],
+          [
+            2,
+            3,
+            5
+          ],
+          [
+            0,
+            2,
+            8
+          ]
+        ],
+        "test_predictions": [
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          2,
+          0,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 0.8181818181818182,
+            "recall": 0.9,
+            "f1-score": 0.8571428571428571,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.6,
+            "recall": 0.3,
+            "f1-score": 0.4,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.5714285714285714,
+            "recall": 0.8,
+            "f1-score": 0.6666666666666666,
+            "support": 10.0
+          },
+          "accuracy": 0.6666666666666666,
+          "macro avg": {
+            "precision": 0.6632034632034632,
+            "recall": 0.6666666666666666,
+            "f1-score": 0.6412698412698412,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.6632034632034631,
+            "recall": 0.6666666666666666,
+            "f1-score": 0.6412698412698412,
+            "support": 30.0
+          }
+        }
+      },
+      "decision_tree": {
+        "accuracy": 0.5666666666666667,
+        "precision": 0.6148148148148148,
+        "recall": 0.5666666666666668,
+        "f1_score": 0.572280701754386,
+        "confusion_matrix": [
+          [
+            7,
+            0,
+            3
+          ],
+          [
+            0,
+            4,
+            6
+          ],
+          [
+            2,
+            2,
+            6
+          ]
+        ],
+        "test_predictions": [
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          1,
+          0,
+          2,
+          2,
+          0,
+          2,
+          0,
+          2,
+          1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          2,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 0.7777777777777778,
+            "recall": 0.7,
+            "f1-score": 0.7368421052631579,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.6666666666666666,
+            "recall": 0.4,
+            "f1-score": 0.5,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.4,
+            "recall": 0.6,
+            "f1-score": 0.48,
+            "support": 10.0
+          },
+          "accuracy": 0.5666666666666667,
+          "macro avg": {
+            "precision": 0.6148148148148148,
+            "recall": 0.5666666666666668,
+            "f1-score": 0.572280701754386,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.6148148148148148,
+            "recall": 0.5666666666666667,
+            "f1-score": 0.572280701754386,
+            "support": 30.0
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.5666666666666667,
+        "precision": 0.6148148148148148,
+        "recall": 0.5666666666666668,
+        "f1_score": 0.572280701754386,
+        "confusion_matrix": [
+          [
+            7,
+            0,
+            3
+          ],
+          [
+            0,
+            4,
+            6
+          ],
+          [
+            2,
+            2,
+            6
+          ]
+        ],
+        "test_predictions": [
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          1,
+          0,
+          2,
+          2,
+          0,
+          2,
+          0,
+          2,
+          1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          2,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 0.7777777777777778,
+            "recall": 0.7,
+            "f1-score": 0.7368421052631579,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.6666666666666666,
+            "recall": 0.4,
+            "f1-score": 0.5,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.4,
+            "recall": 0.6,
+            "f1-score": 0.48,
+            "support": 10.0
+          },
+          "accuracy": 0.5666666666666667,
+          "macro avg": {
+            "precision": 0.6148148148148148,
+            "recall": 0.5666666666666668,
+            "f1-score": 0.572280701754386,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.6148148148148148,
+            "recall": 0.5666666666666667,
+            "f1-score": 0.572280701754386,
+            "support": 30.0
+          }
+        }
+      }
+    },
+    "all_numerical": {
+      "logistic_regression": {
+        "accuracy": 0.9333333333333333,
+        "precision": 0.9333333333333332,
+        "recall": 0.9333333333333332,
+        "f1_score": 0.9333333333333332,
+        "confusion_matrix": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            1
+          ],
+          [
+            0,
+            1,
+            9
+          ]
+        ],
+        "test_predictions": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "accuracy": 0.9333333333333333,
+          "macro avg": {
+            "precision": 0.9333333333333332,
+            "recall": 0.9333333333333332,
+            "f1-score": 0.9333333333333332,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1-score": 0.9333333333333333,
+            "support": 30.0
+          }
+        }
+      },
+      "decision_tree": {
+        "accuracy": 0.9333333333333333,
+        "precision": 0.9333333333333332,
+        "recall": 0.9333333333333332,
+        "f1_score": 0.9333333333333332,
+        "confusion_matrix": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            1
+          ],
+          [
+            0,
+            1,
+            9
+          ]
+        ],
+        "test_predictions": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "accuracy": 0.9333333333333333,
+          "macro avg": {
+            "precision": 0.9333333333333332,
+            "recall": 0.9333333333333332,
+            "f1-score": 0.9333333333333332,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1-score": 0.9333333333333333,
+            "support": 30.0
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.9333333333333333,
+        "precision": 0.9333333333333332,
+        "recall": 0.9333333333333332,
+        "f1_score": 0.9333333333333332,
+        "confusion_matrix": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            1
+          ],
+          [
+            0,
+            1,
+            9
+          ]
+        ],
+        "test_predictions": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "accuracy": 0.9333333333333333,
+          "macro avg": {
+            "precision": 0.9333333333333332,
+            "recall": 0.9333333333333332,
+            "f1-score": 0.9333333333333332,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1-score": 0.9333333333333333,
+            "support": 30.0
+          }
+        }
+      }
+    },
+    "all_except_sepal_width": {
+      "logistic_regression": {
+        "accuracy": 0.9333333333333333,
+        "precision": 0.9333333333333332,
+        "recall": 0.9333333333333332,
+        "f1_score": 0.9333333333333332,
+        "confusion_matrix": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            1
+          ],
+          [
+            0,
+            1,
+            9
+          ]
+        ],
+        "test_predictions": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "accuracy": 0.9333333333333333,
+          "macro avg": {
+            "precision": 0.9333333333333332,
+            "recall": 0.9333333333333332,
+            "f1-score": 0.9333333333333332,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1-score": 0.9333333333333333,
+            "support": 30.0
+          }
+        }
+      },
+      "decision_tree": {
+        "accuracy": 0.9333333333333333,
+        "precision": 0.9333333333333332,
+        "recall": 0.9333333333333332,
+        "f1_score": 0.9333333333333332,
+        "confusion_matrix": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            1
+          ],
+          [
+            0,
+            1,
+            9
+          ]
+        ],
+        "test_predictions": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "accuracy": 0.9333333333333333,
+          "macro avg": {
+            "precision": 0.9333333333333332,
+            "recall": 0.9333333333333332,
+            "f1-score": 0.9333333333333332,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1-score": 0.9333333333333333,
+            "support": 30.0
+          }
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.9333333333333333,
+        "precision": 0.9333333333333332,
+        "recall": 0.9333333333333332,
+        "f1_score": 0.9333333333333332,
+        "confusion_matrix": [
+          [
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            1
+          ],
+          [
+            0,
+            1,
+            9
+          ]
+        ],
+        "test_predictions": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        "test_true": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "classification_report": {
+          "Setosa": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 10.0
+          },
+          "Versicolor": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "Virginica": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1-score": 0.9,
+            "support": 10.0
+          },
+          "accuracy": 0.9333333333333333,
+          "macro avg": {
+            "precision": 0.9333333333333332,
+            "recall": 0.9333333333333332,
+            "f1-score": 0.9333333333333332,
+            "support": 30.0
+          },
+          "weighted avg": {
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1-score": 0.9333333333333333,
+            "support": 30.0
+          }
+        }
+      }
+    }
+  },
+  "best_model": {
+    "selected_feature_set": "all_numerical",
+    "selected_model": "logistic_regression",
+    "accuracy": 0.9333333333333333,
+    "f1_score": 0.9333333333333332,
+    "rationale": "Selected 'logistic_regression' with feature set 'all_numerical' because it achieved the highest test accuracy, breaking ties with f1-score.",
+    "metrics": {
+      "accuracy": 0.9333333333333333,
+      "precision": 0.9333333333333332,
+      "recall": 0.9333333333333332,
+      "f1_score": 0.9333333333333332,
+      "confusion_matrix": [
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          9,
+          1
+        ],
+        [
+          0,
+          1,
+          9
+        ]
+      ],
+      "test_predictions": [
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        0,
+        2,
+        0
+      ],
+      "test_true": [
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        0,
+        2,
+        0
+      ],
+      "classification_report": {
+        "Setosa": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 10.0
+        },
+        "Versicolor": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1-score": 0.9,
+          "support": 10.0
+        },
+        "Virginica": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1-score": 0.9,
+          "support": 10.0
+        },
+        "accuracy": 0.9333333333333333,
+        "macro avg": {
+          "precision": 0.9333333333333332,
+          "recall": 0.9333333333333332,
+          "f1-score": 0.9333333333333332,
+          "support": 30.0
+        },
+        "weighted avg": {
+          "precision": 0.9333333333333333,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9333333333333333,
+          "support": 30.0
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "model": "./output/1/best_model_logistic_regression_all_numerical.joblib",
+    "scaler": "./output/1/best_scaler_all_numerical.joblib",
+    "input_features": "./output/1/input_features.json",
+    "target_encoding": "./output/1/target_encoding.json",
+    "sklearn_version": "1.7.0"
+  }
+}

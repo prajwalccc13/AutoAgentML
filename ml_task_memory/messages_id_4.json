@@ -1,0 +1,65 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "data/Crop_Yield_Prediction.csv, data is of type csv, task intent is tabular regression and target column is Yield",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the details. To confirm, you want to perform a full pipeline for regression on the CSV data located at `data/Crop_Yield_Prediction.csv`, with `Yield` as the target column. \n\nI'll proceed to set up the following:\n- `data_path`: data/Crop_Yield_Prediction.csv\n- `data_type`: csv\n- `task_type`: regression\n- `target_column`: Yield\n- `task_intent`: full_pipeline\n- `agents_to_call`: [\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]\n\nPlease confirm if all this is correct or if you'd like to make any adjustments.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 135,
+          "prompt_tokens": 442,
+          "total_tokens": 577,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjNEXJoTLt2hkk3604GakuKhQ9Hq3",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--9484dd97-2be6-4d6b-a568-d8ffdf86744b-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 442,
+        "output_tokens": 135,
+        "total_tokens": 577,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  }
+]
