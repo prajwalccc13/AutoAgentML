@@ -1,0 +1,16 @@
+{
+  "session_id": "id_0",
+  "dataset_path": "data/iris.csv",
+  "target_column": "variety",
+  "task_type": "classification",
+  "task_intent": "full pipeline",
+  "agents_to_call": [
+    "EDAAgent",
+    "FeatureEngineeringAgent",
+    "ModelTrainingAgent"
+  ],
+  "model_type": "auto",
+  "metrics": "auto",
+  "status": "init",
+  "timestamp": null
+}

@@ -1,0 +1,191 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Hello! To assist you effectively, could you please specify your main goal? Are you looking to perform exploratory data analysis, feature engineering, model training, or a full pipeline? Additionally, I need some details about your dataset:\n\n1. The path to your data file (e.g., `./data.csv`)\n2. The data type (e.g., `csv`, `images`, `text`)\n3. The task type (e.g., `regression`, `classification`, `clustering`, `reinforcement learning`)\n4. The target column, if your task is supervised\n\nPlease provide this information so I can proceed.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 126,
+          "prompt_tokens": 416,
+          "total_tokens": 542,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjN2hO94pxluk587AlVFGEAMBvbvv",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--01231c15-6b01-4beb-8c47-bf82529dfddf-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 416,
+        "output_tokens": 126,
+        "total_tokens": 542,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "data/banana_quality.csv, data is of type csv, tabular classification and target column is Quality, full pipeline",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the details. I will proceed with the full pipeline for a classification task on the CSV dataset at `data/banana_quality.csv`, with the target column `Quality`.\n\nHere's the summary:\n- Data path: `data/banana_quality.csv`\n- Data type: CSV\n- Task type: Classification\n- Target column: Quality\n- Intent: Full pipeline\n\nI will now prepare the necessary configurations and call the relevant agents.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 88,
+          "prompt_tokens": 573,
+          "total_tokens": 661,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjN2rnMw2kEenkAPVWG2VZ2eubxOu",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--15cf8247-4b64-4cdc-9c79-e9c57a37f707-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 573,
+        "output_tokens": 88,
+        "total_tokens": 661,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Understood. I will initiate the full pipeline for your dataset. Thank you.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 16,
+          "prompt_tokens": 670,
+          "total_tokens": 686,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjN7vd8iqDGAhltYqh0N6BMSB1lKa",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--8da6d249-f39f-4f37-be63-c8742a7909b2-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 670,
+        "output_tokens": 16,
+        "total_tokens": 686,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  }
+]

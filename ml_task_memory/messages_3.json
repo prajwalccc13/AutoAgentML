@@ -1,0 +1,191 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you. Could you please specify the main goal of your task? Are you interested in exploratory data analysis (EDA), feature engineering, model training, or running a full pipeline?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 416,
+          "total_tokens": 452,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjL2trcPVxIyEYjrVNnRX6UgfaDon",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--937f2c40-7a78-4b7b-8cb9-1ec2568d066d-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 416,
+        "output_tokens": 36,
+        "total_tokens": 452,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "data/Crop_Yield_Prediction.csv, data is of type csv, tabular regression and target column is Yield, full pipeline",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the details. To confirm:\n\n- Data path: `data/Crop_Yield_Prediction.csv`\n- Data type: `csv`\n- Task type: `regression`\n- Target column: `Yield`\n- Goal: Full pipeline\n\nI will proceed with these settings.\n\n**Confirmed parameters:**\n- `data_path`: `data/Crop_Yield_Prediction.csv`\n- `data_type`: `csv`\n- `task_type`: `regression`\n- `target_column`: `Yield`\n- `task_intent`: `full_pipeline`\n- `agents_to_call`: `[\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]`",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 138,
+          "prompt_tokens": 487,
+          "total_tokens": 625,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjL2wBxTXA1vPylgJGh31y5XbnY2Z",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--fd05f0c4-24db-45ca-af52-6ff2899a8349-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 487,
+        "output_tokens": 138,
+        "total_tokens": 625,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you. I will now initiate the full pipeline with the provided details.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 15,
+          "prompt_tokens": 634,
+          "total_tokens": 649,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjL5Og3SrrXB4hHqak596l46sGrrp",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--ea73142e-057b-47fa-a9e2-75bf3d87e098-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 634,
+        "output_tokens": 15,
+        "total_tokens": 649,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  }
+]

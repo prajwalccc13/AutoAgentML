@@ -1,0 +1,499 @@
+{
+  "data_overview": {
+    "dataset_path": "data/banana_quality.csv",
+    "n_rows": 8000,
+    "n_columns": 8,
+    "columns": [
+      "Size",
+      "Weight",
+      "Sweetness",
+      "Softness",
+      "HarvestTime",
+      "Ripeness",
+      "Acidity",
+      "Quality"
+    ]
+  },
+  "feature_types_fallback": "Used df dtypes to infer numeric features because EDA artifact was missing, empty or invalid.",
+  "feature_types": {
+    "Size": "numeric",
+    "Weight": "numeric",
+    "Sweetness": "numeric",
+    "Softness": "numeric",
+    "HarvestTime": "numeric",
+    "Ripeness": "numeric",
+    "Acidity": "numeric"
+  },
+  "feature_types_mismatch/missing_in_eda": [
+    "Quality"
+  ],
+  "feature_types_keys": [
+    "Size",
+    "Weight",
+    "Sweetness",
+    "Softness",
+    "HarvestTime",
+    "Ripeness",
+    "Acidity"
+  ],
+  "df_columns": [
+    "Size",
+    "Weight",
+    "Sweetness",
+    "Softness",
+    "HarvestTime",
+    "Ripeness",
+    "Acidity",
+    "Quality"
+  ],
+  "missing_values": {},
+  "cardinality": {},
+  "outlier_indices": {},
+  "data_validation": {
+    "no_missing": true,
+    "no_duplicate_rows": "True",
+    "n_duplicate_rows": 0,
+    "validated_and_cleaned_path": "data/banana_quality.csv"
+  },
+  "outlier_detection_warning": "No outlier indices found in EDA JSON. No outlier indicator features will be created.",
+  "outlier_feature_info": {},
+  "outlier_indicator_features": [],
+  "feature_selection_analysis_pre_assert": {
+    "num_features": [
+      "Size",
+      "Weight",
+      "Sweetness",
+      "Softness",
+      "HarvestTime",
+      "Ripeness",
+      "Acidity"
+    ],
+    "outlier_new_features": [],
+    "selected_features": [
+      "Size",
+      "Weight",
+      "Sweetness",
+      "Softness",
+      "HarvestTime",
+      "Ripeness",
+      "Acidity"
+    ]
+  },
+  "feature_selection_analysis": {
+    "selected_numeric_features": [
+      "Size",
+      "Weight",
+      "Sweetness",
+      "Softness",
+      "HarvestTime",
+      "Ripeness",
+      "Acidity"
+    ],
+    "added_outlier_indicator_features": [],
+    "final_selected_features": [
+      "Size",
+      "Weight",
+      "Sweetness",
+      "Softness",
+      "HarvestTime",
+      "Ripeness",
+      "Acidity"
+    ],
+    "all_selected_actually_exist_in_df": [
+      "Size",
+      "Weight",
+      "Sweetness",
+      "Softness",
+      "HarvestTime",
+      "Ripeness",
+      "Acidity"
+    ],
+    "summary_stats": {},
+    "correlations_with_target": {
+      "Size": null,
+      "Weight": null,
+      "Sweetness": null,
+      "Softness": null,
+      "HarvestTime": null,
+      "Ripeness": null,
+      "Acidity": null
+    }
+  },
+  "target_encoding": {
+    "column": "Quality",
+    "encoding_map": {
+      "Good": 1,
+      "Bad": 0
+    },
+    "new_column": "Quality_binary"
+  },
+  "feature_type_validation": {
+    "selected_features": [
+      "Size",
+      "Weight",
+      "Sweetness",
+      "Softness",
+      "HarvestTime",
+      "Ripeness",
+      "Acidity"
+    ],
+    "dtypes": {
+      "Size": "float64",
+      "Weight": "float64",
+      "Sweetness": "float64",
+      "Softness": "float64",
+      "HarvestTime": "float64",
+      "Ripeness": "float64",
+      "Acidity": "float64"
+    },
+    "all_numeric_or_binary": true
+  },
+  "data_splits": {
+    "train_shape": [
+      6400,
+      8
+    ],
+    "test_shape": [
+      1600,
+      8
+    ],
+    "train_class_counts": {
+      "1": 3205,
+      "0": 3195
+    },
+    "test_class_counts": {
+      "1": 801,
+      "0": 799
+    },
+    "train_path": "./output/id_2/train.csv",
+    "test_path": "./output/id_2/test.csv"
+  },
+  "model_definitions": {
+    "logistic_regression": {
+      "type": "LogisticRegression",
+      "import": "sklearn.linear_model.LogisticRegression",
+      "hyperparameters": {
+        "solver": "liblinear",
+        "random_state": 42
+      }
+    },
+    "random_forest": {
+      "type": "RandomForestClassifier",
+      "import": "sklearn.ensemble.RandomForestClassifier",
+      "hyperparameters": {
+        "n_estimators": 100,
+        "max_depth": 5,
+        "random_state": 42
+      }
+    },
+    "xgboost": {
+      "type": "XGBClassifier",
+      "import": "xgboost.XGBClassifier",
+      "hyperparameters": {
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "random_state": 42,
+        "use_label_encoder": false,
+        "eval_metric": "logloss"
+      }
+    }
+  },
+  "model_cross_validation": {
+    "logistic_regression": {
+      "test_accuracy": [
+        0.86484375,
+        0.890625,
+        0.88984375,
+        0.8765625,
+        0.86484375
+      ],
+      "test_precision": [
+        0.8611111111111112,
+        0.8836140888208269,
+        0.8918495297805643,
+        0.8698315467075038,
+        0.8667711598746082
+      ],
+      "test_recall": [
+        0.8705148205928237,
+        0.9001560062402496,
+        0.8876755070202809,
+        0.8861154446177847,
+        0.8627145085803433
+      ],
+      "test_f1": [
+        0.8657874321179209,
+        0.8918083462132921,
+        0.8897576231430805,
+        0.8778979907264297,
+        0.8647380766223612
+      ],
+      "test_roc_auc": [
+        0.941735697596918,
+        0.9517845502552497,
+        0.9545970571217216,
+        0.9540428565499428,
+        0.9459715477820991
+      ],
+      "mean_metrics": {
+        "test_accuracy": 0.87734375,
+        "test_precision": 0.8746354872589229,
+        "test_recall": 0.8814352574102964,
+        "test_f1": 0.8779978937646169,
+        "test_roc_auc": 0.9496263418611862
+      }
+    },
+    "random_forest": {
+      "test_accuracy": [
+        0.93515625,
+        0.9546875,
+        0.940625,
+        0.95390625,
+        0.921875
+      ],
+      "test_precision": [
+        0.9400630914826499,
+        0.9694041867954911,
+        0.952,
+        0.9476923076923077,
+        0.9246467817896389
+      ],
+      "test_recall": [
+        0.9297971918876755,
+        0.9391575663026521,
+        0.9282371294851794,
+        0.9609984399375975,
+        0.9188767550702028
+      ],
+      "test_f1": [
+        0.9349019607843138,
+        0.9540412044374009,
+        0.9399684044233807,
+        0.95429899302866,
+        0.9217527386541471
+      ],
+      "test_roc_auc": [
+        0.9819750536500333,
+        0.9863232087968964,
+        0.9833300374268491,
+        0.9870580738722506,
+        0.9782445757924214
+      ],
+      "mean_metrics": {
+        "test_accuracy": 0.9412499999999999,
+        "test_precision": 0.9467612735520176,
+        "test_recall": 0.9354134165366614,
+        "test_f1": 0.9409926602655805,
+        "test_roc_auc": 0.9833861899076902
+      }
+    },
+    "xgboost": {
+      "test_accuracy": [
+        0.95,
+        0.959375,
+        0.96015625,
+        0.9671875,
+        0.9421875
+      ],
+      "test_precision": [
+        0.958664546899841,
+        0.9667194928684627,
+        0.9697452229299363,
+        0.9701726844583988,
+        0.9536
+      ],
+      "test_recall": [
+        0.9407176287051482,
+        0.9516380655226209,
+        0.9500780031201248,
+        0.9641185647425897,
+        0.9297971918876755
+      ],
+      "test_f1": [
+        0.9496062992125984,
+        0.9591194968553459,
+        0.9598108747044918,
+        0.9671361502347418,
+        0.9415481832543444
+      ],
+      "test_roc_auc": [
+        0.9870361011623564,
+        0.9898315181433548,
+        0.9881530472486506,
+        0.9904467540203957,
+        0.9877758490621316
+      ],
+      "mean_metrics": {
+        "test_accuracy": 0.9557812499999999,
+        "test_precision": 0.9637803894313277,
+        "test_recall": 0.9472698907956317,
+        "test_f1": 0.9554442008523045,
+        "test_roc_auc": 0.9886486539273779
+      }
+    }
+  },
+  "feature_importances": {
+    "logistic_regression": {
+      "Size": 0.6729288567097902,
+      "Weight": 0.9929485947533611,
+      "Sweetness": 0.788639351143903,
+      "Softness": 0.07599537067108762,
+      "HarvestTime": 0.5833067393614678,
+      "Ripeness": 0.6174224603443097,
+      "Acidity": -0.09031787171078837
+    },
+    "random_forest": {
+      "Size": 0.17367887527609013,
+      "Weight": 0.17055076790985865,
+      "Sweetness": 0.19663208820524078,
+      "Softness": 0.10638173173304048,
+      "HarvestTime": 0.17035660486523485,
+      "Ripeness": 0.13275464626443728,
+      "Acidity": 0.04964528574609794
+    },
+    "xgboost": {
+      "Size": 0.15009745955467224,
+      "Weight": 0.15017995238304138,
+      "Sweetness": 0.1942361742258072,
+      "Softness": 0.09935376048088074,
+      "HarvestTime": 0.17615483701229095,
+      "Ripeness": 0.15227481722831726,
+      "Acidity": 0.07770299911499023
+    }
+  },
+  "final_model_evaluation": {
+    "best_model": "xgboost",
+    "test_set_metrics": {
+      "accuracy": 0.948125,
+      "precision": 0.949874686716792,
+      "recall": 0.9463171036204744,
+      "f1": 0.9480925578486554,
+      "roc_auc": 0.9872968551513361,
+      "confusion_matrix": [
+        [
+          759,
+          40
+        ],
+        [
+          43,
+          758
+        ]
+      ]
+    }
+  },
+  "final_model_artifact": {
+    "model_file_path": "./output/id_2/best_model.pkl",
+    "model_type": "xgboost",
+    "hyperparameters": {
+      "n_estimators": 100,
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "random_state": 42,
+      "use_label_encoder": false,
+      "eval_metric": "logloss"
+    },
+    "timestamp": "2025-06-17 19:42:38"
+  },
+  "summary": {
+    "data_split_files": {
+      "train": "./output/id_2/train.csv",
+      "test": "./output/id_2/test.csv"
+    },
+    "selected_features": [
+      "Size",
+      "Weight",
+      "Sweetness",
+      "Softness",
+      "HarvestTime",
+      "Ripeness",
+      "Acidity"
+    ],
+    "model_types": [
+      "logistic_regression",
+      "random_forest",
+      "xgboost"
+    ],
+    "model_hyperparameters": {
+      "logistic_regression": {
+        "solver": "liblinear",
+        "random_state": 42
+      },
+      "random_forest": {
+        "n_estimators": 100,
+        "max_depth": 5,
+        "random_state": 42
+      },
+      "xgboost": {
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "random_state": 42,
+        "use_label_encoder": false,
+        "eval_metric": "logloss"
+      }
+    },
+    "cv_evaluation_results": {
+      "logistic_regression": {
+        "test_accuracy": 0.87734375,
+        "test_precision": 0.8746354872589229,
+        "test_recall": 0.8814352574102964,
+        "test_f1": 0.8779978937646169,
+        "test_roc_auc": 0.9496263418611862
+      },
+      "random_forest": {
+        "test_accuracy": 0.9412499999999999,
+        "test_precision": 0.9467612735520176,
+        "test_recall": 0.9354134165366614,
+        "test_f1": 0.9409926602655805,
+        "test_roc_auc": 0.9833861899076902
+      },
+      "xgboost": {
+        "test_accuracy": 0.9557812499999999,
+        "test_precision": 0.9637803894313277,
+        "test_recall": 0.9472698907956317,
+        "test_f1": 0.9554442008523045,
+        "test_roc_auc": 0.9886486539273779
+      }
+    },
+    "feature_importances": {
+      "Size": 0.15009745955467224,
+      "Weight": 0.15017995238304138,
+      "Sweetness": 0.1942361742258072,
+      "Softness": 0.09935376048088074,
+      "HarvestTime": 0.17615483701229095,
+      "Ripeness": 0.15227481722831726,
+      "Acidity": 0.07770299911499023
+    },
+    "final_model": {
+      "type": "xgboost",
+      "model_file": "./output/id_2/best_model.pkl",
+      "hyperparameters": {
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "random_state": 42,
+        "use_label_encoder": false,
+        "eval_metric": "logloss"
+      },
+      "test_metrics": {
+        "accuracy": 0.948125,
+        "precision": 0.949874686716792,
+        "recall": 0.9463171036204744,
+        "f1": 0.9480925578486554,
+        "roc_auc": 0.9872968551513361,
+        "confusion_matrix": [
+          [
+            759,
+            40
+          ],
+          [
+            43,
+            758
+          ]
+        ]
+      },
+      "timestamp": "2025-06-17 19:42:38"
+    }
+  }
+}

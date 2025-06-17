@@ -1,0 +1,191 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you. Could you please specify the dataset location, data type, and the nature of the task you want to perform? For example, is it EDA, feature engineering, model training, or a full pipeline?  \nOnce I have this information, I can guide you further.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 57,
+          "prompt_tokens": 416,
+          "total_tokens": 473,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjLF9F2fkkf39ifqVRDA25EYC0k2p",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--f7246e58-9749-4f1d-99b4-45b421c84083-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 416,
+        "output_tokens": 57,
+        "total_tokens": 473,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "data/Crop_Yield_Prediction.csv, data is of type csv, task intent is tabular regression and target column is Yield",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the details. Here's a summary:\n\n- Data path: `data/Crop_Yield_Prediction.csv`\n- Data type: `csv`\n- Task intent: `regression` (tabular data)\n- Target column: `Yield`\n\nI will proceed with setting up a full pipeline for regression on tabular data.  \n\n**Confirm to proceed or specify if you'd like a different approach.**",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 83,
+          "prompt_tokens": 508,
+          "total_tokens": 591,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjLFHiu08O9KXWay5j1rb12raA1gN",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--95b9f6a7-6e25-4eee-a515-15dc972fe7df-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 508,
+        "output_tokens": 83,
+        "total_tokens": 591,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Great. Based on your input, here are the details:\n\n- Data path: `data/Crop_Yield_Prediction.csv`\n- Data type: `csv`\n- Task type: `regression`\n- Target column: `Yield`\n- Task intent: `full_pipeline`\n\nI will now hand over this setup to the relevant agents to proceed.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 71,
+          "prompt_tokens": 600,
+          "total_tokens": 671,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-nano-2025-04-14",
+        "system_fingerprint": "fp_38343a2f8f",
+        "id": "chatcmpl-BjLHFzz0o4QPRQnsuSBRmwknq5f0l",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--4ff12b9b-64d7-47a5-8106-ff6f70ab64cf-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 600,
+        "output_tokens": 71,
+        "total_tokens": 671,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  }
+]

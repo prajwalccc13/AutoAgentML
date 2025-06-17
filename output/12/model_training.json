@@ -1,0 +1,93 @@
+{
+  "timestamp_start": "2025-06-17T17:53:25.951740",
+  "steps": [
+    {
+      "step": "Load EDA",
+      "details": {
+        "status": "success",
+        "eda_file": "./output/12/eda_agent.json",
+        "eda_keys": [
+          "dataset_loading",
+          "columns_and_types",
+          "missing_values",
+          "numerical_columns",
+          "categorical_columns",
+          "numerical_descriptive_stats",
+          "categorical_cardinality",
+          "constant_features",
+          "Yield_distribution",
+          "outlier_counts_1.5xIQR",
+          "pearson_correlations",
+          "duplicate_rows",
+          "highly_imbalanced_categorical",
+          "numerical_entry_possible_issues",
+          "preprocessing_recommendations"
+        ]
+      }
+    },
+    {
+      "step": "Missing Value Check",
+      "details": {
+        "missing_values_per_column": {
+          "Nitrogen": 0,
+          "Phosphorus": 0,
+          "Potassium": 0,
+          "Temperature": 0,
+          "Humidity": 0,
+          "pH_Value": 0,
+          "Rainfall": 0,
+          "Crop": 0,
+          "Yield": 0
+        },
+        "imputation_performed": false,
+        "message": "Zero missing values; proceeding without imputation."
+      }
+    },
+    {
+      "step": "Outlier Handling",
+      "details": {
+        "columns_processed": [
+          "Phosphorus",
+          "Potassium",
+          "Temperature",
+          "Humidity",
+          "pH_Value",
+          "Rainfall",
+          "Yield"
+        ],
+        "outlier_capping_stats": {
+          "Phosphorus": {
+            "method": "No outlier capping (not flagged by EDA)",
+            "n_capped": 0
+          },
+          "Potassium": {
+            "method": "No outlier capping (not flagged by EDA)",
+            "n_capped": 0
+          },
+          "Temperature": {
+            "method": "No outlier capping (not flagged by EDA)",
+            "n_capped": 0
+          },
+          "Humidity": {
+            "method": "No outlier capping (not flagged by EDA)",
+            "n_capped": 0
+          },
+          "pH_Value": {
+            "method": "No outlier capping (not flagged by EDA)",
+            "n_capped": 0
+          },
+          "Rainfall": {
+            "method": "No outlier capping (not flagged by EDA)",
+            "n_capped": 0
+          },
+          "Yield": {
+            "method": "No outlier capping (not flagged by EDA)",
+            "n_capped": 0
+          }
+        },
+        "preprocessed_data_file": "./output/12/preprocessed_data.csv"
+      }
+    }
+  ],
+  "summary": {}
+}

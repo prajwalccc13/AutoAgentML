@@ -1,0 +1,9 @@
+{
+    "openai_api_key": "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",
+    "openai_model_name": "gpt-4.1",
+    "available_agents": [
+        "EDAAgent",
+        "FeatureEngineeringAgent",
+        "ModelTrainingAgent"
+    ]
+}
