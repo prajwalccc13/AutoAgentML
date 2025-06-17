@@ -2,7 +2,7 @@
 
 ## Create Conda Environment and install packages
 
-```python
+```shell
 git clone https://github.com/prajwalccc13/AutoAgentML.git
 conda create -n autoagentml
 conda activate autoagentml
