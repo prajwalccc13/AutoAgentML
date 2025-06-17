@@ -3,6 +3,7 @@
 ## Create Conda Environment and install packages
 
 ```python
+git clone https://github.com/prajwalccc13/AutoAgentML.git
 conda create -n autoagentml
 conda activate autoagentml
 pip install -r requirements.txt
@@ -45,7 +46,7 @@ General Chat Steps example:
 Do You want to access previous chats (yes or no): no
 Chats thread id: 7
 ```
-```python
+```bash
 Bot: Hello! How can I assist you with your machine learning task today? Do you want to run EDA, do feature engineering, train a model, or run a full pipeline?
 You:full pipeline
 
