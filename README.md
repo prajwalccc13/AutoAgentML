@@ -35,18 +35,18 @@ I have removed api key from the project since the project visibility is set to p
 
 ## Run the chat app
 In the terminal
-```python
+```bash
 python chat.py
 ```
 
 Now, you can chat.
 
 General Chat Steps example:
-```python
+```
 Do You want to access previous chats (yes or no): no
 Chats thread id: 7
 ```
-```bash
+```
 Bot: Hello! How can I assist you with your machine learning task today? Do you want to run EDA, do feature engineering, train a model, or run a full pipeline?
 You:full pipeline
 
@@ -60,7 +60,7 @@ Bot: Great! For a full pipeline, I'll need a few details:
 Please provide this information so I can confirm everything for you.
 ```
 
-```python
+```
 Bot: Great! For a full pipeline, I'll need a few details:
 
 1. What is the path to your dataset? (e.g., ./data/train.csv)
@@ -73,7 +73,7 @@ Please provide this information so I can confirm everything for you.
 You:data/banana_quality.csv
 ```
 
-```python
+```
 Bot: Thank you. Could you please specify:
 
 1. The type of data (Is it a csv file, images, text, etc.)?
@@ -84,7 +84,7 @@ Bot: Thank you. Could you please specify:
 You:type of data is csv, target column is Quality and task type is classification
 ```
 
-```python
+```
 Bot: Thank you for the information. To confirm:
 
 - data_path: data/banana_quality.csv
@@ -100,7 +100,7 @@ You:okay
 ```
 
 
-```python
+```
 Process Starts. You will be Notified once the process completes.
 ```
 
