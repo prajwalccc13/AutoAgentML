@@ -1,5 +1,5 @@
 # Auto-Agent-ML: Autonomous, Language-Guided Machine Learning System Powered by LLMs
-
+Auto-Agent-ML aims to bridge this gap by providing simpler chat interface to user to gather only the important information like directory of dataset, target column and task intent. With only the minimal information Auto-Agent-ML can perform the full workflow of machine learning pipeline including exploratory data analysis, feature engineering and model training. 
 ## Create Conda Environment and install packages
 
 ```shell
