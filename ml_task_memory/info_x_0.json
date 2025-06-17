@@ -1,0 +1,12 @@
+{
+  "session_id": "x_0",
+  "dataset_path": null,
+  "target_column": null,
+  "task_type": null,
+  "task_intent": null,
+  "agents_to_call": [],
+  "model_type": "auto",
+  "metrics": "auto",
+  "status": "init",
+  "timestamp": null
+}

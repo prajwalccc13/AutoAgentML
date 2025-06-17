@@ -1,0 +1,758 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "hello",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Hello! How can I assist you with your machine learning task today? Are you looking to run exploratory data analysis (EDA), perform feature engineering, train a model, or execute a full pipeline?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 39,
+          "prompt_tokens": 416,
+          "total_tokens": 455,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPvmbPq8rRFitp27Z7YgeqEJ3iWL",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--9866531a-9b82-416c-81a2-ec522a5e6329-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 416,
+        "output_tokens": 39,
+        "total_tokens": 455,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "hello",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Hello! How can I help you with your machine learning workflow? Do you want to run EDA, do feature engineering, train a model, or run a full pipeline?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 35,
+          "prompt_tokens": 464,
+          "total_tokens": 499,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPvpTjb8er8voqEV3ADcuULV1oQe",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--02a6003c-6663-4436-8bf3-8cf41389962f-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 464,
+        "output_tokens": 35,
+        "total_tokens": 499,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "hello",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Hello! How can I assist you with your machine learning project today? Are you interested in running EDA, doing feature engineering, training a model, or executing a full ML pipeline?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 37,
+          "prompt_tokens": 508,
+          "total_tokens": 545,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPvsAwfS4E6Dmbv4lbltTbLbSumb",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--1ea387b3-9f6f-4203-a862-70ee01a07558-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 508,
+        "output_tokens": 37,
+        "total_tokens": 545,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "hello",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Hello! How can I assist you with your machine learning task today? Are you interested in running EDA, feature engineering, model training, or a full pipeline?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 33,
+          "prompt_tokens": 554,
+          "total_tokens": 587,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPvujvtCVgq9NdTzr7Jfrf3a2z8G",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--e5a3f06f-f622-4ba9-8e8a-4b556141221d-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 554,
+        "output_tokens": 33,
+        "total_tokens": 587,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "hello",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Hello! How can I help you with your machine learning task? Would you like to run EDA, perform feature engineering, train a model, or run a full pipeline?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 35,
+          "prompt_tokens": 596,
+          "total_tokens": 631,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPwm2VOP1LReANptGU5p284dipSS",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--62c75068-2b9f-48d1-aad1-ec6ba5c30675-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 596,
+        "output_tokens": 35,
+        "total_tokens": 631,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "Full Pipeline please",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Great! To set up a full pipeline, I'll need a few details:\n\n1. What is the path to your dataset? (e.g., ./data/train.csv)\n2. What type of data is it? (e.g., csv, images, text, etc.)\n3. What kind of task are you aiming to perform? (e.g., regression, classification, clustering, reinforcement learning)\n4. For supervised tasks (like regression or classification), what is the target column?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 97,
+          "prompt_tokens": 642,
+          "total_tokens": 739,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPxHGXXAOf4A23lugZbjvsDF2MVg",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--145aa097-00c1-4821-a611-ad7effa4c756-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 642,
+        "output_tokens": 97,
+        "total_tokens": 739,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "./data/iris.csv",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you! A few more details:\n\n1. What type of data is it? (Is ./data/iris.csv a CSV file, as the name suggests?)\n2. What is the type of task? (For example: classification, regression, etc.)\n3. If this is a supervised task (like classification or regression), which column is your target (the value you want to predict)?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 79,
+          "prompt_tokens": 752,
+          "total_tokens": 831,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPxV5ZonMcGfd0nMVlZ6GdBheP9A",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--b9ea89ba-9ca9-4162-9101-d5f500dac662-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 752,
+        "output_tokens": 79,
+        "total_tokens": 831,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "classification, variety",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the information. To confirm:\n\n- Dataset path: ./data/iris.csv\n- Data type: csv\n- Task type: classification\n- Target column: variety\n- Task intent: full_pipeline\n- Agents to call: [\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]\n\nIs this correct? If yes, I\u2019ll proceed with these details.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 78,
+          "prompt_tokens": 842,
+          "total_tokens": 920,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPxs2w6biB0AtY52qCOFpIcxI5PJ",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--d7a56677-b606-4d4a-b74c-55f3b7803f6f-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 842,
+        "output_tokens": 78,
+        "total_tokens": 920,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "yes",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for confirming. Here are the collected details:\n\n- data_path: ./data/iris.csv\n- data_type: csv\n- task_type: classification\n- target_column: variety\n- task_intent: full_pipeline\n- agents_to_call: [\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]\n\nYou\u2019re all set! I\u2019ll proceed with these details.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 79,
+          "prompt_tokens": 929,
+          "total_tokens": 1008,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPy3XKmyhBERlsuQa8zoAxxxXOt0",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--639b7da1-fc49-4880-821f-cacb0f0d1490-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 929,
+        "output_tokens": 79,
+        "total_tokens": 1008,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "okay.",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you! Your information has been successfully collected. The full pipeline process will proceed with the specified details. If you need further assistance, feel free to ask!",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 32,
+          "prompt_tokens": 1018,
+          "total_tokens": 1050,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPyOmpI5ZFlAWYAwtZ3R7iGhMSId",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--90512bba-8a8f-49fa-bdd9-5fdec71aad2f-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 1018,
+        "output_tokens": 32,
+        "total_tokens": 1050,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "hello",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Hello! How can I assist you with your machine learning task today? Are you interested in running EDA, feature engineering, model training, or a full pipeline?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 33,
+          "prompt_tokens": 1059,
+          "total_tokens": 1092,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 1024
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPzDgWfVEtC3bOHF7j4g3NRBmuxq",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--eb1c7397-202d-437d-a59e-3ab4b18b62d3-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 1059,
+        "output_tokens": 33,
+        "total_tokens": 1092,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 1024
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "full pipeline",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Great! To set up a full pipeline, I\u2019ll need just a few details:\n\n1. What is the path to your dataset? (e.g., ./data/train.csv)\n2. What type of data is it? (e.g., csv, images, text, etc.)\n3. What type of task are you performing? (e.g., classification, regression, clustering, reinforcement learning)\n4. For supervised tasks (like classification or regression), what is the target column?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 97,
+          "prompt_tokens": 1102,
+          "total_tokens": 1199,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 1024
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjPzQRkGEJZP3Gumu3zHkUg10Hahp",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--a23d7def-c59b-4b26-992f-2dc085c53b61-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 1102,
+        "output_tokens": 97,
+        "total_tokens": 1199,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 1024
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  }
+]
