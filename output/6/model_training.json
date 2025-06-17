@@ -1,0 +1,3866 @@
+{
+  "eda_summary": {
+    "missing_values": [
+      {
+        "column": "sepal.length",
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      {
+        "column": "sepal.width",
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      {
+        "column": "petal.length",
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      {
+        "column": "petal.width",
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      {
+        "column": "variety",
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      }
+    ]
+  },
+  "cleaned_data": {
+    "path": "./output/6/iris.cleaned.csv",
+    "shape_before": [
+      150,
+      5
+    ],
+    "shape_after": [
+      148,
+      5
+    ],
+    "dropped_duplicate_indices": [
+      101,
+      142
+    ]
+  },
+  "missing_value_handling": {
+    "missing_counts": {
+      "sepal.length": 0,
+      "sepal.width": 0,
+      "petal.length": 0,
+      "petal.width": 0,
+      "variety": 0
+    },
+    "imputation_required": false,
+    "comment": "No missing values found after cleaning. Imputation not required."
+  },
+  "variance_feature_check": {
+    "constant_columns": [],
+    "near_zero_variance_columns": [],
+    "comment": "No constant or near-zero variance columns found."
+  },
+  "outlier_handling": {
+    "decision": "retain",
+    "comment": "A small number of outliers in 'sepal.width' (indices: [15, 32, 33, 60]) are retained for potential informative value.",
+    "counts": 4
+  },
+  "feature_engineering": {
+    "features_numerical": [
+      "sepal.length",
+      "sepal.width",
+      "petal.length",
+      "petal.width"
+    ],
+    "target": "variety",
+    "category_feature_encoding": "label encoding (for modeling only, target in CSV remains original string)",
+    "feature_transforms": "none required",
+    "comment": "No further feature transformation or encoding required."
+  },
+  "feature_selection": {
+    "available_feature_sets": {
+      "all_features": [
+        "sepal.length",
+        "sepal.width",
+        "petal.length",
+        "petal.width"
+      ],
+      "drop_petal_length": [
+        "sepal.length",
+        "sepal.width",
+        "petal.width"
+      ],
+      "drop_petal_width": [
+        "sepal.length",
+        "sepal.width",
+        "petal.length"
+      ]
+    },
+    "rationale": "Strong correlation detected between 'petal.length' and 'petal.width' as per EDA. Both all-feature and single-petal feature subsets will be tested.",
+    "correlations": {}
+  },
+  "train_test_split": {
+    "train_path": "./output/6/iris.train.csv",
+    "test_path": "./output/6/iris.test.csv",
+    "train_shape": [
+      118,
+      6
+    ],
+    "test_shape": [
+      30,
+      6
+    ],
+    "train_indices": [
+      89,
+      23,
+      101,
+      80,
+      123,
+      140,
+      133,
+      6,
+      30,
+      114,
+      129,
+      33,
+      143,
+      99,
+      15,
+      122,
+      32,
+      58,
+      91,
+      94,
+      17,
+      34,
+      44,
+      90,
+      109,
+      146,
+      48,
+      128,
+      1,
+      100,
+      147,
+      72,
+      139,
+      111,
+      4,
+      50,
+      9,
+      73,
+      37,
+      24,
+      88,
+      39,
+      97,
+      13,
+      12,
+      95,
+      113,
+      71,
+      25,
+      136,
+      76,
+      19,
+      137,
+      29,
+      67,
+      53,
+      108,
+      79,
+      130,
+      70,
+      65,
+      60,
+      120,
+      36,
+      54,
+      103,
+      40,
+      35,
+      8,
+      75,
+      83,
+      85,
+      81,
+      142,
+      135,
+      26,
+      125,
+      68,
+      2,
+      126,
+      3,
+      112,
+      61,
+      59,
+      46,
+      55,
+      115,
+      11,
+      43,
+      119,
+      118,
+      110,
+      78,
+      131,
+      27,
+      105,
+      98,
+      144,
+      121,
+      31,
+      82,
+      74,
+      92,
+      86,
+      64,
+      0,
+      117,
+      62,
+      87,
+      5,
+      49,
+      21,
+      45,
+      52,
+      47,
+      102,
+      124,
+      16
+    ],
+    "test_indices": [
+      69,
+      66,
+      141,
+      7,
+      145,
+      57,
+      84,
+      28,
+      138,
+      106,
+      20,
+      42,
+      18,
+      93,
+      127,
+      22,
+      77,
+      14,
+      107,
+      38,
+      63,
+      134,
+      41,
+      10,
+      96,
+      51,
+      104,
+      116,
+      132,
+      56
+    ],
+    "train_class_distribution": {
+      "counts": {
+        "Versicolor": 40,
+        "Setosa": 40,
+        "Virginica": 38
+      },
+      "normalized": {
+        "Versicolor": 0.339,
+        "Setosa": 0.339,
+        "Virginica": 0.322
+      }
+    },
+    "test_class_distribution": {
+      "counts": {
+        "Versicolor": 10,
+        "Virginica": 10,
+        "Setosa": 10
+      },
+      "normalized": {
+        "Versicolor": 0.333,
+        "Virginica": 0.333,
+        "Setosa": 0.333
+      }
+    },
+    "label_encoder_classes": [
+      "Setosa",
+      "Versicolor",
+      "Virginica"
+    ],
+    "label_encoder_map": {
+      "0": "Setosa",
+      "1": "Versicolor",
+      "2": "Virginica"
+    }
+  },
+  "models_to_train": [
+    {
+      "name": "LogisticRegression",
+      "sklearn_class": "sklearn.linear_model.LogisticRegression",
+      "hyperparams": {
+        "solver": "lbfgs",
+        "max_iter": 200,
+        "random_state": 42
+      }
+    },
+    {
+      "name": "RandomForestClassifier",
+      "sklearn_class": "sklearn.ensemble.RandomForestClassifier",
+      "hyperparams": {
+        "n_estimators": 100,
+        "max_depth": null,
+        "random_state": 42
+      }
+    },
+    {
+      "name": "XGBClassifier",
+      "sklearn_class": "xgboost.sklearn.XGBClassifier",
+      "hyperparams": {
+        "n_estimators": 100,
+        "use_label_encoder": false,
+        "eval_metric": "mlogloss",
+        "random_state": 42
+      }
+    }
+  ],
+  "cross_validation_results": {
+    "LogisticRegression": {
+      "all_features": {
+        "mean_accuracy": 0.9659420289855072,
+        "std_accuracy": 0.017048246892780554,
+        "mean_macro_f1": 0.9653293112116643,
+        "std_macro_f1": 0.01738961873278094,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "precision_macro": 1.0,
+            "recall_macro": 1.0,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 0.9565217391304348,
+            "macro_f1": 0.9555555555555556,
+            "precision_macro": 0.9583333333333334,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.875,
+                "recall": 1.0,
+                "f1-score": 0.9333333333333333,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.9565217391304348,
+            "macro_f1": 0.9547511312217195,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9523809523809524,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.8571428571428571,
+                "f1-score": 0.9230769230769231,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      },
+      "drop_petal_length": {
+        "mean_accuracy": 0.9579710144927537,
+        "std_accuracy": 0.02636227501968298,
+        "mean_macro_f1": 0.9575515334338863,
+        "std_macro_f1": 0.02638958785976933,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 0.9166666666666666,
+            "macro_f1": 0.9166666666666666,
+            "precision_macro": 0.9166666666666666,
+            "recall_macro": 0.9166666666666666,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.875,
+                "recall": 0.875,
+                "f1-score": 0.875,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.875,
+                "recall": 0.875,
+                "f1-score": 0.875,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "precision_macro": 1.0,
+            "recall_macro": 1.0,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.9565217391304348,
+            "macro_f1": 0.9547511312217195,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9523809523809524,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.8571428571428571,
+                "f1-score": 0.9230769230769231,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      },
+      "drop_petal_width": {
+        "mean_accuracy": 0.9405797101449276,
+        "std_accuracy": 0.021045703958634254,
+        "mean_macro_f1": 0.9394298403121933,
+        "std_macro_f1": 0.021641807149342412,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 0.9166666666666666,
+            "macro_f1": 0.9153439153439153,
+            "precision_macro": 0.9333333333333332,
+            "recall_macro": 0.9166666666666666,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "f1-score": 0.8888888888888888,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.75,
+                "f1-score": 0.8571428571428571,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 0.9130434782608695,
+            "macro_f1": 0.9107142857142857,
+            "precision_macro": 0.9259259259259259,
+            "recall_macro": 0.9166666666666666,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.75,
+                "f1-score": 0.8571428571428571,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.7777777777777778,
+                "recall": 1.0,
+                "f1-score": 0.875,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.9565217391304348,
+            "macro_f1": 0.9547511312217195,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9523809523809524,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.8571428571428571,
+                "f1-score": 0.9230769230769231,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    "RandomForestClassifier": {
+      "all_features": {
+        "mean_accuracy": 0.9576086956521739,
+        "std_accuracy": 0.0008874962836170975,
+        "mean_macro_f1": 0.9569632981397687,
+        "std_macro_f1": 0.0014995557069729258,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 0.9565217391304348,
+            "macro_f1": 0.9555555555555556,
+            "precision_macro": 0.9583333333333334,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.875,
+                "recall": 1.0,
+                "f1-score": 0.9333333333333333,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.9565217391304348,
+            "macro_f1": 0.9547511312217195,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9523809523809524,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.8571428571428571,
+                "f1-score": 0.9230769230769231,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      },
+      "drop_petal_length": {
+        "mean_accuracy": 0.9318840579710145,
+        "std_accuracy": 0.021636229893961804,
+        "mean_macro_f1": 0.930225645813881,
+        "std_macro_f1": 0.023008596864993344,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 0.9166666666666666,
+            "macro_f1": 0.9166666666666666,
+            "precision_macro": 0.9166666666666666,
+            "recall_macro": 0.9166666666666666,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.875,
+                "recall": 0.875,
+                "f1-score": 0.875,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.875,
+                "recall": 0.875,
+                "f1-score": 0.875,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 0.9130434782608695,
+            "macro_f1": 0.9107142857142857,
+            "precision_macro": 0.9259259259259259,
+            "recall_macro": 0.9166666666666666,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.75,
+                "f1-score": 0.8571428571428571,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.7777777777777778,
+                "recall": 1.0,
+                "f1-score": 0.875,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.9130434782608695,
+            "macro_f1": 0.9074074074074074,
+            "precision_macro": 0.9333333333333332,
+            "recall_macro": 0.9047619047619048,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "f1-score": 0.8888888888888888,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.7142857142857143,
+                "f1-score": 0.8333333333333334,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      },
+      "drop_petal_width": {
+        "mean_accuracy": 0.9141304347826088,
+        "std_accuracy": 0.0558558884742932,
+        "mean_macro_f1": 0.9125210084033615,
+        "std_macro_f1": 0.05770948991271555,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 0.8260869565217391,
+            "macro_f1": 0.8214285714285715,
+            "precision_macro": 0.8214285714285715,
+            "recall_macro": 0.8214285714285715,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.75,
+                "recall": 0.75,
+                "f1-score": 0.75,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.7142857142857143,
+                "recall": 0.7142857142857143,
+                "f1-score": 0.7142857142857143,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.8695652173913043,
+            "macro_f1": 0.8666666666666667,
+            "precision_macro": 0.8690476190476191,
+            "recall_macro": 0.8690476190476191,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8571428571428571,
+                "recall": 0.75,
+                "f1-score": 0.8,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.75,
+                "recall": 0.8571428571428571,
+                "f1-score": 0.8,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    "XGBClassifier": {
+      "all_features": {
+        "mean_accuracy": 0.9489130434782608,
+        "std_accuracy": 0.017948501560146175,
+        "mean_macro_f1": 0.9486299648064355,
+        "std_macro_f1": 0.017801569979365536,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 0.9565217391304348,
+            "macro_f1": 0.9555555555555556,
+            "precision_macro": 0.9583333333333334,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.875,
+                "recall": 1.0,
+                "f1-score": 0.9333333333333333,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.9130434782608695,
+            "macro_f1": 0.9130844645550528,
+            "precision_macro": 0.9212962962962963,
+            "recall_macro": 0.9107142857142857,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.875,
+                "recall": 0.875,
+                "f1-score": 0.875,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.8571428571428571,
+                "f1-score": 0.9230769230769231,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      },
+      "drop_petal_length": {
+        "mean_accuracy": 0.9398550724637682,
+        "std_accuracy": 0.04463144601662569,
+        "mean_macro_f1": 0.9376001340707223,
+        "std_macro_f1": 0.046970888282938425,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "precision_macro": 1.0,
+            "recall_macro": 1.0,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 0.8695652173913043,
+            "macro_f1": 0.8642533936651583,
+            "precision_macro": 0.9,
+            "recall_macro": 0.875,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.625,
+                "f1-score": 0.7692307692307693,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.7,
+                "recall": 1.0,
+                "f1-score": 0.8235294117647058,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.9130434782608695,
+            "macro_f1": 0.9074074074074074,
+            "precision_macro": 0.9333333333333332,
+            "recall_macro": 0.9047619047619048,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "f1-score": 0.8888888888888888,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.7142857142857143,
+                "f1-score": 0.8333333333333334,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      },
+      "drop_petal_width": {
+        "mean_accuracy": 0.9141304347826086,
+        "std_accuracy": 0.0558558884742932,
+        "mean_macro_f1": 0.9119327731092437,
+        "std_macro_f1": 0.05864244948791206,
+        "folds": [
+          {
+            "fold": 0,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 1,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 2,
+            "accuracy": 0.9583333333333334,
+            "macro_f1": 0.9581699346405229,
+            "precision_macro": 0.9629629629629629,
+            "recall_macro": 0.9583333333333334,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1-score": 0.9333333333333333,
+                "support": 8.0
+              }
+            }
+          },
+          {
+            "fold": 3,
+            "accuracy": 0.8695652173913043,
+            "macro_f1": 0.8666666666666667,
+            "precision_macro": 0.8690476190476191,
+            "recall_macro": 0.8690476190476191,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8571428571428571,
+                "recall": 0.75,
+                "f1-score": 0.8,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.75,
+                "recall": 0.8571428571428571,
+                "f1-score": 0.8,
+                "support": 7.0
+              }
+            }
+          },
+          {
+            "fold": 4,
+            "accuracy": 0.8260869565217391,
+            "macro_f1": 0.8184873949579833,
+            "precision_macro": 0.8240740740740741,
+            "recall_macro": 0.8273809523809524,
+            "per_class_metrics": {
+              "Setosa": {
+                "precision": 0.8888888888888888,
+                "recall": 1.0,
+                "f1-score": 0.9411764705882353,
+                "support": 8.0
+              },
+              "Versicolor": {
+                "precision": 0.8333333333333334,
+                "recall": 0.625,
+                "f1-score": 0.7142857142857143,
+                "support": 8.0
+              },
+              "Virginica": {
+                "precision": 0.75,
+                "recall": 0.8571428571428571,
+                "f1-score": 0.8,
+                "support": 7.0
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "model_selection": {
+    "selected_model": "LogisticRegression",
+    "selected_feature_set": "all_features",
+    "mean_cv_macro_f1": 0.9653293112116643,
+    "selection_metric": "mean_macro_f1",
+    "rationale": "Selected combination with highest mean macro F1 across 5 folds. Performance metrics and full CV log available in cross_validation_results."
+  },
+  "final_model_training": {
+    "model_name": "LogisticRegression",
+    "feature_set": [
+      "sepal.length",
+      "sepal.width",
+      "petal.length",
+      "petal.width"
+    ],
+    "hyperparameters": {
+      "solver": "lbfgs",
+      "max_iter": 200,
+      "random_state": 42
+    },
+    "training_shape": [
+      118,
+      4
+    ],
+    "label_encoder_classes": [
+      "Setosa",
+      "Versicolor",
+      "Virginica"
+    ],
+    "label_encoder_map": {
+      "0": "Setosa",
+      "1": "Versicolor",
+      "2": "Virginica"
+    }
+  },
+  "test_set_evaluation": {
+    "accuracy": 0.9666666666666667,
+    "macro_f1": 0.9665831244778612,
+    "precision_macro": 0.9696969696969697,
+    "recall_macro": 0.9666666666666667,
+    "confusion_matrix": [
+      [
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        9,
+        1
+      ],
+      [
+        0,
+        0,
+        10
+      ]
+    ],
+    "classification_report": {
+      "Setosa": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "Versicolor": {
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1-score": 0.9473684210526315,
+        "support": 10.0
+      },
+      "Virginica": {
+        "precision": 0.9090909090909091,
+        "recall": 1.0,
+        "f1-score": 0.9523809523809523,
+        "support": 10.0
+      },
+      "accuracy": 0.9666666666666667,
+      "macro avg": {
+        "precision": 0.9696969696969697,
+        "recall": 0.9666666666666667,
+        "f1-score": 0.9665831244778612,
+        "support": 30.0
+      },
+      "weighted avg": {
+        "precision": 0.9696969696969696,
+        "recall": 0.9666666666666667,
+        "f1-score": 0.9665831244778613,
+        "support": 30.0
+      }
+    },
+    "class_probabilities": [
+      [
+        0.0308251404231998,
+        0.9463904628511012,
+        0.02278439672569904
+      ],
+      [
+        0.011922296898406685,
+        0.7200856934245661,
+        0.2679920096770273
+      ],
+      [
+        4.0895708927289825e-06,
+        0.01569981574308488,
+        0.9842960946860223
+      ],
+      [
+        0.9731115276217526,
+        0.026888331639730152,
+        1.4073851716563197e-07
+      ],
+      [
+        0.0002098286387988976,
+        0.1622771089222935,
+        0.8375130624389077
+      ],
+      [
+        0.18568659184010178,
+        0.8094231887833462,
+        0.004890219376552016
+      ],
+      [
+        0.014320927348836273,
+        0.690018525096943,
+        0.2956605475542207
+      ],
+      [
+        0.9727807527777145,
+        0.027219152277853556,
+        9.494443192578212e-08
+      ],
+      [
+        6.170103111301407e-05,
+        0.10198778034155045,
+        0.8979505186273367
+      ],
+      [
+        1.4137662916516455e-06,
+        0.031557335147719114,
+        0.9684412510859892
+      ],
+      [
+        0.9376189990381193,
+        0.06238058252774472,
+        4.1843413585876466e-07
+      ],
+      [
+        0.9883351369539288,
+        0.011664808659197168,
+        5.43868739429221e-08
+      ],
+      [
+        0.9464132346502409,
+        0.05358637303962884,
+        3.9231013026197294e-07
+      ],
+      [
+        0.15214768733508197,
+        0.8431251803233482,
+        0.004727132341569852
+      ],
+      [
+        2.1565675782987818e-05,
+        0.0454493373980643,
+        0.9545290969261527
+      ],
+      [
+        0.9953292171521797,
+        0.004670774157601423,
+        8.690218825631285e-09
+      ],
+      [
+        0.0007580784209531016,
+        0.4684590269644079,
+        0.530782894614639
+      ],
+      [
+        0.9834919143924623,
+        0.01650806282066427,
+        2.278687332431898e-08
+      ],
+      [
+        1.1652963033740008e-05,
+        0.07551461756793254,
+        0.9244737294690338
+      ],
+      [
+        0.9850119387218591,
+        0.014987991989683043,
+        6.928845790659206e-08
+      ],
+      [
+        0.004070340337621277,
+        0.7466252120060727,
+        0.24930444765630602
+      ],
+      [
+        8.366372474560097e-07,
+        0.017540459831016476,
+        0.9824587035317359
+      ],
+      [
+        0.9598991994196707,
+        0.040100578292424825,
+        2.2228790467009108e-07
+      ],
+      [
+        0.9711938434422898,
+        0.028806041347407135,
+        1.1521030315478387e-07
+      ],
+      [
+        0.022529254739743196,
+        0.897764619329415,
+        0.07970612593084184
+      ],
+      [
+        0.007072904110587977,
+        0.8181482558263098,
+        0.17477884006310213
+      ],
+      [
+        1.4396183707619336e-07,
+        0.007713538806844684,
+        0.9922863172313183
+      ],
+      [
+        1.7143667781242588e-07,
+        0.004644564800025288,
+        0.9953552637632969
+      ],
+      [
+        0.0007684426720379413,
+        0.4747807044288702,
+        0.5244508528990919
+      ],
+      [
+        0.0046648708522083766,
+        0.6555419384574339,
+        0.3397931906903578
+      ]
+    ],
+    "y_test_labels": [
+      "Versicolor",
+      "Versicolor",
+      "Virginica",
+      "Setosa",
+      "Virginica",
+      "Versicolor",
+      "Versicolor",
+      "Setosa",
+      "Virginica",
+      "Virginica",
+      "Setosa",
+      "Setosa",
+      "Setosa",
+      "Versicolor",
+      "Virginica",
+      "Setosa",
+      "Versicolor",
+      "Setosa",
+      "Virginica",
+      "Setosa",
+      "Versicolor",
+      "Virginica",
+      "Setosa",
+      "Setosa",
+      "Versicolor",
+      "Versicolor",
+      "Virginica",
+      "Virginica",
+      "Virginica",
+      "Versicolor"
+    ],
+    "pred_labels": [
+      "Versicolor",
+      "Versicolor",
+      "Virginica",
+      "Setosa",
+      "Virginica",
+      "Versicolor",
+      "Versicolor",
+      "Setosa",
+      "Virginica",
+      "Virginica",
+      "Setosa",
+      "Setosa",
+      "Setosa",
+      "Versicolor",
+      "Virginica",
+      "Setosa",
+      "Virginica",
+      "Setosa",
+      "Virginica",
+      "Setosa",
+      "Versicolor",
+      "Virginica",
+      "Setosa",
+      "Setosa",
+      "Versicolor",
+      "Versicolor",
+      "Virginica",
+      "Virginica",
+      "Virginica",
+      "Versicolor"
+    ]
+  },
+  "final_model_path": "./output/6/final_model.pkl",
+  "label_encoder_path": "./output/6/labelencoder.pkl",
+  "full_pipeline_summary": {
+    "eda_summary": {
+      "missing_values": [
+        {
+          "column": "sepal.length",
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        {
+          "column": "sepal.width",
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        {
+          "column": "petal.length",
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        {
+          "column": "petal.width",
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        {
+          "column": "variety",
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        }
+      ]
+    },
+    "cleaned_data": {
+      "path": "./output/6/iris.cleaned.csv",
+      "shape_before": [
+        150,
+        5
+      ],
+      "shape_after": [
+        148,
+        5
+      ],
+      "dropped_duplicate_indices": [
+        101,
+        142
+      ]
+    },
+    "missing_value_handling": {
+      "missing_counts": {
+        "sepal.length": 0,
+        "sepal.width": 0,
+        "petal.length": 0,
+        "petal.width": 0,
+        "variety": 0
+      },
+      "imputation_required": false,
+      "comment": "No missing values found after cleaning. Imputation not required."
+    },
+    "variance_feature_check": {
+      "constant_columns": [],
+      "near_zero_variance_columns": [],
+      "comment": "No constant or near-zero variance columns found."
+    },
+    "outlier_handling": {
+      "decision": "retain",
+      "comment": "A small number of outliers in 'sepal.width' (indices: [15, 32, 33, 60]) are retained for potential informative value.",
+      "counts": 4
+    },
+    "feature_engineering": {
+      "features_numerical": [
+        "sepal.length",
+        "sepal.width",
+        "petal.length",
+        "petal.width"
+      ],
+      "target": "variety",
+      "category_feature_encoding": "label encoding (for modeling only, target in CSV remains original string)",
+      "feature_transforms": "none required",
+      "comment": "No further feature transformation or encoding required."
+    },
+    "feature_selection": {
+      "available_feature_sets": {
+        "all_features": [
+          "sepal.length",
+          "sepal.width",
+          "petal.length",
+          "petal.width"
+        ],
+        "drop_petal_length": [
+          "sepal.length",
+          "sepal.width",
+          "petal.width"
+        ],
+        "drop_petal_width": [
+          "sepal.length",
+          "sepal.width",
+          "petal.length"
+        ]
+      },
+      "rationale": "Strong correlation detected between 'petal.length' and 'petal.width' as per EDA. Both all-feature and single-petal feature subsets will be tested.",
+      "correlations": {}
+    },
+    "train_test_split": {
+      "train_path": "./output/6/iris.train.csv",
+      "test_path": "./output/6/iris.test.csv",
+      "train_shape": [
+        118,
+        6
+      ],
+      "test_shape": [
+        30,
+        6
+      ],
+      "train_indices": [
+        89,
+        23,
+        101,
+        80,
+        123,
+        140,
+        133,
+        6,
+        30,
+        114,
+        129,
+        33,
+        143,
+        99,
+        15,
+        122,
+        32,
+        58,
+        91,
+        94,
+        17,
+        34,
+        44,
+        90,
+        109,
+        146,
+        48,
+        128,
+        1,
+        100,
+        147,
+        72,
+        139,
+        111,
+        4,
+        50,
+        9,
+        73,
+        37,
+        24,
+        88,
+        39,
+        97,
+        13,
+        12,
+        95,
+        113,
+        71,
+        25,
+        136,
+        76,
+        19,
+        137,
+        29,
+        67,
+        53,
+        108,
+        79,
+        130,
+        70,
+        65,
+        60,
+        120,
+        36,
+        54,
+        103,
+        40,
+        35,
+        8,
+        75,
+        83,
+        85,
+        81,
+        142,
+        135,
+        26,
+        125,
+        68,
+        2,
+        126,
+        3,
+        112,
+        61,
+        59,
+        46,
+        55,
+        115,
+        11,
+        43,
+        119,
+        118,
+        110,
+        78,
+        131,
+        27,
+        105,
+        98,
+        144,
+        121,
+        31,
+        82,
+        74,
+        92,
+        86,
+        64,
+        0,
+        117,
+        62,
+        87,
+        5,
+        49,
+        21,
+        45,
+        52,
+        47,
+        102,
+        124,
+        16
+      ],
+      "test_indices": [
+        69,
+        66,
+        141,
+        7,
+        145,
+        57,
+        84,
+        28,
+        138,
+        106,
+        20,
+        42,
+        18,
+        93,
+        127,
+        22,
+        77,
+        14,
+        107,
+        38,
+        63,
+        134,
+        41,
+        10,
+        96,
+        51,
+        104,
+        116,
+        132,
+        56
+      ],
+      "train_class_distribution": {
+        "counts": {
+          "Versicolor": 40,
+          "Setosa": 40,
+          "Virginica": 38
+        },
+        "normalized": {
+          "Versicolor": 0.339,
+          "Setosa": 0.339,
+          "Virginica": 0.322
+        }
+      },
+      "test_class_distribution": {
+        "counts": {
+          "Versicolor": 10,
+          "Virginica": 10,
+          "Setosa": 10
+        },
+        "normalized": {
+          "Versicolor": 0.333,
+          "Virginica": 0.333,
+          "Setosa": 0.333
+        }
+      },
+      "label_encoder_classes": [
+        "Setosa",
+        "Versicolor",
+        "Virginica"
+      ],
+      "label_encoder_map": {
+        "0": "Setosa",
+        "1": "Versicolor",
+        "2": "Virginica"
+      }
+    },
+    "models_to_train": [
+      {
+        "name": "LogisticRegression",
+        "sklearn_class": "sklearn.linear_model.LogisticRegression",
+        "hyperparams": {
+          "solver": "lbfgs",
+          "max_iter": 200,
+          "random_state": 42
+        }
+      },
+      {
+        "name": "RandomForestClassifier",
+        "sklearn_class": "sklearn.ensemble.RandomForestClassifier",
+        "hyperparams": {
+          "n_estimators": 100,
+          "max_depth": null,
+          "random_state": 42
+        }
+      },
+      {
+        "name": "XGBClassifier",
+        "sklearn_class": "xgboost.sklearn.XGBClassifier",
+        "hyperparams": {
+          "n_estimators": 100,
+          "use_label_encoder": false,
+          "eval_metric": "mlogloss",
+          "random_state": 42
+        }
+      }
+    ],
+    "cross_validation_results": {
+      "LogisticRegression": {
+        "all_features": {
+          "mean_accuracy": 0.9659420289855072,
+          "std_accuracy": 0.017048246892780554,
+          "mean_macro_f1": 0.9653293112116643,
+          "std_macro_f1": 0.01738961873278094,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 1.0,
+              "macro_f1": 1.0,
+              "precision_macro": 1.0,
+              "recall_macro": 1.0,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 0.9565217391304348,
+              "macro_f1": 0.9555555555555556,
+              "precision_macro": 0.9583333333333334,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.875,
+                  "recall": 1.0,
+                  "f1-score": 0.9333333333333333,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.9565217391304348,
+              "macro_f1": 0.9547511312217195,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9523809523809524,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.8571428571428571,
+                  "f1-score": 0.9230769230769231,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        },
+        "drop_petal_length": {
+          "mean_accuracy": 0.9579710144927537,
+          "std_accuracy": 0.02636227501968298,
+          "mean_macro_f1": 0.9575515334338863,
+          "std_macro_f1": 0.02638958785976933,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 0.9166666666666666,
+              "macro_f1": 0.9166666666666666,
+              "precision_macro": 0.9166666666666666,
+              "recall_macro": 0.9166666666666666,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.875,
+                  "recall": 0.875,
+                  "f1-score": 0.875,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.875,
+                  "recall": 0.875,
+                  "f1-score": 0.875,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 1.0,
+              "macro_f1": 1.0,
+              "precision_macro": 1.0,
+              "recall_macro": 1.0,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.9565217391304348,
+              "macro_f1": 0.9547511312217195,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9523809523809524,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.8571428571428571,
+                  "f1-score": 0.9230769230769231,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        },
+        "drop_petal_width": {
+          "mean_accuracy": 0.9405797101449276,
+          "std_accuracy": 0.021045703958634254,
+          "mean_macro_f1": 0.9394298403121933,
+          "std_macro_f1": 0.021641807149342412,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 0.9166666666666666,
+              "macro_f1": 0.9153439153439153,
+              "precision_macro": 0.9333333333333332,
+              "recall_macro": 0.9166666666666666,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8,
+                  "recall": 1.0,
+                  "f1-score": 0.8888888888888888,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.75,
+                  "f1-score": 0.8571428571428571,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 0.9130434782608695,
+              "macro_f1": 0.9107142857142857,
+              "precision_macro": 0.9259259259259259,
+              "recall_macro": 0.9166666666666666,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.75,
+                  "f1-score": 0.8571428571428571,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.7777777777777778,
+                  "recall": 1.0,
+                  "f1-score": 0.875,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.9565217391304348,
+              "macro_f1": 0.9547511312217195,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9523809523809524,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.8571428571428571,
+                  "f1-score": 0.9230769230769231,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        }
+      },
+      "RandomForestClassifier": {
+        "all_features": {
+          "mean_accuracy": 0.9576086956521739,
+          "std_accuracy": 0.0008874962836170975,
+          "mean_macro_f1": 0.9569632981397687,
+          "std_macro_f1": 0.0014995557069729258,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 0.9565217391304348,
+              "macro_f1": 0.9555555555555556,
+              "precision_macro": 0.9583333333333334,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.875,
+                  "recall": 1.0,
+                  "f1-score": 0.9333333333333333,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.9565217391304348,
+              "macro_f1": 0.9547511312217195,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9523809523809524,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.8571428571428571,
+                  "f1-score": 0.9230769230769231,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        },
+        "drop_petal_length": {
+          "mean_accuracy": 0.9318840579710145,
+          "std_accuracy": 0.021636229893961804,
+          "mean_macro_f1": 0.930225645813881,
+          "std_macro_f1": 0.023008596864993344,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 0.9166666666666666,
+              "macro_f1": 0.9166666666666666,
+              "precision_macro": 0.9166666666666666,
+              "recall_macro": 0.9166666666666666,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.875,
+                  "recall": 0.875,
+                  "f1-score": 0.875,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.875,
+                  "recall": 0.875,
+                  "f1-score": 0.875,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 0.9130434782608695,
+              "macro_f1": 0.9107142857142857,
+              "precision_macro": 0.9259259259259259,
+              "recall_macro": 0.9166666666666666,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.75,
+                  "f1-score": 0.8571428571428571,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.7777777777777778,
+                  "recall": 1.0,
+                  "f1-score": 0.875,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.9130434782608695,
+              "macro_f1": 0.9074074074074074,
+              "precision_macro": 0.9333333333333332,
+              "recall_macro": 0.9047619047619048,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8,
+                  "recall": 1.0,
+                  "f1-score": 0.8888888888888888,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.7142857142857143,
+                  "f1-score": 0.8333333333333334,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        },
+        "drop_petal_width": {
+          "mean_accuracy": 0.9141304347826088,
+          "std_accuracy": 0.0558558884742932,
+          "mean_macro_f1": 0.9125210084033615,
+          "std_macro_f1": 0.05770948991271555,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 0.8260869565217391,
+              "macro_f1": 0.8214285714285715,
+              "precision_macro": 0.8214285714285715,
+              "recall_macro": 0.8214285714285715,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.75,
+                  "recall": 0.75,
+                  "f1-score": 0.75,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.7142857142857143,
+                  "recall": 0.7142857142857143,
+                  "f1-score": 0.7142857142857143,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.8695652173913043,
+              "macro_f1": 0.8666666666666667,
+              "precision_macro": 0.8690476190476191,
+              "recall_macro": 0.8690476190476191,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8571428571428571,
+                  "recall": 0.75,
+                  "f1-score": 0.8,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.75,
+                  "recall": 0.8571428571428571,
+                  "f1-score": 0.8,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        }
+      },
+      "XGBClassifier": {
+        "all_features": {
+          "mean_accuracy": 0.9489130434782608,
+          "std_accuracy": 0.017948501560146175,
+          "mean_macro_f1": 0.9486299648064355,
+          "std_macro_f1": 0.017801569979365536,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 0.9565217391304348,
+              "macro_f1": 0.9555555555555556,
+              "precision_macro": 0.9583333333333334,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.875,
+                  "recall": 1.0,
+                  "f1-score": 0.9333333333333333,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.9130434782608695,
+              "macro_f1": 0.9130844645550528,
+              "precision_macro": 0.9212962962962963,
+              "recall_macro": 0.9107142857142857,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.875,
+                  "recall": 0.875,
+                  "f1-score": 0.875,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.8571428571428571,
+                  "f1-score": 0.9230769230769231,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        },
+        "drop_petal_length": {
+          "mean_accuracy": 0.9398550724637682,
+          "std_accuracy": 0.04463144601662569,
+          "mean_macro_f1": 0.9376001340707223,
+          "std_macro_f1": 0.046970888282938425,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 1.0,
+              "macro_f1": 1.0,
+              "precision_macro": 1.0,
+              "recall_macro": 1.0,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 0.8695652173913043,
+              "macro_f1": 0.8642533936651583,
+              "precision_macro": 0.9,
+              "recall_macro": 0.875,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.625,
+                  "f1-score": 0.7692307692307693,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.7,
+                  "recall": 1.0,
+                  "f1-score": 0.8235294117647058,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.9130434782608695,
+              "macro_f1": 0.9074074074074074,
+              "precision_macro": 0.9333333333333332,
+              "recall_macro": 0.9047619047619048,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8,
+                  "recall": 1.0,
+                  "f1-score": 0.8888888888888888,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.7142857142857143,
+                  "f1-score": 0.8333333333333334,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        },
+        "drop_petal_width": {
+          "mean_accuracy": 0.9141304347826086,
+          "std_accuracy": 0.0558558884742932,
+          "mean_macro_f1": 0.9119327731092437,
+          "std_macro_f1": 0.05864244948791206,
+          "folds": [
+            {
+              "fold": 0,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 1,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 2,
+              "accuracy": 0.9583333333333334,
+              "macro_f1": 0.9581699346405229,
+              "precision_macro": 0.9629629629629629,
+              "recall_macro": 0.9583333333333334,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 1.0,
+                  "recall": 0.875,
+                  "f1-score": 0.9333333333333333,
+                  "support": 8.0
+                }
+              }
+            },
+            {
+              "fold": 3,
+              "accuracy": 0.8695652173913043,
+              "macro_f1": 0.8666666666666667,
+              "precision_macro": 0.8690476190476191,
+              "recall_macro": 0.8690476190476191,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1-score": 1.0,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8571428571428571,
+                  "recall": 0.75,
+                  "f1-score": 0.8,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.75,
+                  "recall": 0.8571428571428571,
+                  "f1-score": 0.8,
+                  "support": 7.0
+                }
+              }
+            },
+            {
+              "fold": 4,
+              "accuracy": 0.8260869565217391,
+              "macro_f1": 0.8184873949579833,
+              "precision_macro": 0.8240740740740741,
+              "recall_macro": 0.8273809523809524,
+              "per_class_metrics": {
+                "Setosa": {
+                  "precision": 0.8888888888888888,
+                  "recall": 1.0,
+                  "f1-score": 0.9411764705882353,
+                  "support": 8.0
+                },
+                "Versicolor": {
+                  "precision": 0.8333333333333334,
+                  "recall": 0.625,
+                  "f1-score": 0.7142857142857143,
+                  "support": 8.0
+                },
+                "Virginica": {
+                  "precision": 0.75,
+                  "recall": 0.8571428571428571,
+                  "f1-score": 0.8,
+                  "support": 7.0
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "model_selection": {
+      "selected_model": "LogisticRegression",
+      "selected_feature_set": "all_features",
+      "mean_cv_macro_f1": 0.9653293112116643,
+      "selection_metric": "mean_macro_f1",
+      "rationale": "Selected combination with highest mean macro F1 across 5 folds. Performance metrics and full CV log available in cross_validation_results."
+    },
+    "final_model_training": {
+      "model_name": "LogisticRegression",
+      "feature_set": [
+        "sepal.length",
+        "sepal.width",
+        "petal.length",
+        "petal.width"
+      ],
+      "hyperparameters": {
+        "solver": "lbfgs",
+        "max_iter": 200,
+        "random_state": 42
+      },
+      "training_shape": [
+        118,
+        4
+      ],
+      "label_encoder_classes": [
+        "Setosa",
+        "Versicolor",
+        "Virginica"
+      ],
+      "label_encoder_map": {
+        "0": "Setosa",
+        "1": "Versicolor",
+        "2": "Virginica"
+      }
+    },
+    "test_set_evaluation": {
+      "accuracy": 0.9666666666666667,
+      "macro_f1": 0.9665831244778612,
+      "precision_macro": 0.9696969696969697,
+      "recall_macro": 0.9666666666666667,
+      "confusion_matrix": [
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          9,
+          1
+        ],
+        [
+          0,
+          0,
+          10
+        ]
+      ],
+      "classification_report": {
+        "Setosa": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 10.0
+        },
+        "Versicolor": {
+          "precision": 1.0,
+          "recall": 0.9,
+          "f1-score": 0.9473684210526315,
+          "support": 10.0
+        },
+        "Virginica": {
+          "precision": 0.9090909090909091,
+          "recall": 1.0,
+          "f1-score": 0.9523809523809523,
+          "support": 10.0
+        },
+        "accuracy": 0.9666666666666667,
+        "macro avg": {
+          "precision": 0.9696969696969697,
+          "recall": 0.9666666666666667,
+          "f1-score": 0.9665831244778612,
+          "support": 30.0
+        },
+        "weighted avg": {
+          "precision": 0.9696969696969696,
+          "recall": 0.9666666666666667,
+          "f1-score": 0.9665831244778613,
+          "support": 30.0
+        }
+      },
+      "class_probabilities": [
+        [
+          0.0308251404231998,
+          0.9463904628511012,
+          0.02278439672569904
+        ],
+        [
+          0.011922296898406685,
+          0.7200856934245661,
+          0.2679920096770273
+        ],
+        [
+          4.0895708927289825e-06,
+          0.01569981574308488,
+          0.9842960946860223
+        ],
+        [
+          0.9731115276217526,
+          0.026888331639730152,
+          1.4073851716563197e-07
+        ],
+        [
+          0.0002098286387988976,
+          0.1622771089222935,
+          0.8375130624389077
+        ],
+        [
+          0.18568659184010178,
+          0.8094231887833462,
+          0.004890219376552016
+        ],
+        [
+          0.014320927348836273,
+          0.690018525096943,
+          0.2956605475542207
+        ],
+        [
+          0.9727807527777145,
+          0.027219152277853556,
+          9.494443192578212e-08
+        ],
+        [
+          6.170103111301407e-05,
+          0.10198778034155045,
+          0.8979505186273367
+        ],
+        [
+          1.4137662916516455e-06,
+          0.031557335147719114,
+          0.9684412510859892
+        ],
+        [
+          0.9376189990381193,
+          0.06238058252774472,
+          4.1843413585876466e-07
+        ],
+        [
+          0.9883351369539288,
+          0.011664808659197168,
+          5.43868739429221e-08
+        ],
+        [
+          0.9464132346502409,
+          0.05358637303962884,
+          3.9231013026197294e-07
+        ],
+        [
+          0.15214768733508197,
+          0.8431251803233482,
+          0.004727132341569852
+        ],
+        [
+          2.1565675782987818e-05,
+          0.0454493373980643,
+          0.9545290969261527
+        ],
+        [
+          0.9953292171521797,
+          0.004670774157601423,
+          8.690218825631285e-09
+        ],
+        [
+          0.0007580784209531016,
+          0.4684590269644079,
+          0.530782894614639
+        ],
+        [
+          0.9834919143924623,
+          0.01650806282066427,
+          2.278687332431898e-08
+        ],
+        [
+          1.1652963033740008e-05,
+          0.07551461756793254,
+          0.9244737294690338
+        ],
+        [
+          0.9850119387218591,
+          0.014987991989683043,
+          6.928845790659206e-08
+        ],
+        [
+          0.004070340337621277,
+          0.7466252120060727,
+          0.24930444765630602
+        ],
+        [
+          8.366372474560097e-07,
+          0.017540459831016476,
+          0.9824587035317359
+        ],
+        [
+          0.9598991994196707,
+          0.040100578292424825,
+          2.2228790467009108e-07
+        ],
+        [
+          0.9711938434422898,
+          0.028806041347407135,
+          1.1521030315478387e-07
+        ],
+        [
+          0.022529254739743196,
+          0.897764619329415,
+          0.07970612593084184
+        ],
+        [
+          0.007072904110587977,
+          0.8181482558263098,
+          0.17477884006310213
+        ],
+        [
+          1.4396183707619336e-07,
+          0.007713538806844684,
+          0.9922863172313183
+        ],
+        [
+          1.7143667781242588e-07,
+          0.004644564800025288,
+          0.9953552637632969
+        ],
+        [
+          0.0007684426720379413,
+          0.4747807044288702,
+          0.5244508528990919
+        ],
+        [
+          0.0046648708522083766,
+          0.6555419384574339,
+          0.3397931906903578
+        ]
+      ],
+      "y_test_labels": [
+        "Versicolor",
+        "Versicolor",
+        "Virginica",
+        "Setosa",
+        "Virginica",
+        "Versicolor",
+        "Versicolor",
+        "Setosa",
+        "Virginica",
+        "Virginica",
+        "Setosa",
+        "Setosa",
+        "Setosa",
+        "Versicolor",
+        "Virginica",
+        "Setosa",
+        "Versicolor",
+        "Setosa",
+        "Virginica",
+        "Setosa",
+        "Versicolor",
+        "Virginica",
+        "Setosa",
+        "Setosa",
+        "Versicolor",
+        "Versicolor",
+        "Virginica",
+        "Virginica",
+        "Virginica",
+        "Versicolor"
+      ],
+      "pred_labels": [
+        "Versicolor",
+        "Versicolor",
+        "Virginica",
+        "Setosa",
+        "Virginica",
+        "Versicolor",
+        "Versicolor",
+        "Setosa",
+        "Virginica",
+        "Virginica",
+        "Setosa",
+        "Setosa",
+        "Setosa",
+        "Versicolor",
+        "Virginica",
+        "Setosa",
+        "Virginica",
+        "Setosa",
+        "Virginica",
+        "Setosa",
+        "Versicolor",
+        "Virginica",
+        "Setosa",
+        "Setosa",
+        "Versicolor",
+        "Versicolor",
+        "Virginica",
+        "Virginica",
+        "Virginica",
+        "Versicolor"
+      ]
+    },
+    "final_model_path": "./output/6/final_model.pkl",
+    "label_encoder_path": "./output/6/labelencoder.pkl"
+  }
+}

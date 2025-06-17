@@ -8,6 +8,7 @@ from langchain_core.messages import BaseMessage
 from langgraph.graph.message import add_messages
 from typing_extensions import Annotated, TypedDict
 from langchain_core.messages import BaseMessage
+from langchain.chat_models import init_chat_model
 
 from typing import Optional
 from pydantic import BaseModel
@@ -26,6 +27,7 @@ from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, messag
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 from memory import MLTaskFileMemory
+from openai import OpenAI
 
 
 from tools.info_extractor import info_extractor as ie
@@ -37,7 +39,7 @@ from agents.model_training_agent import ModelTrainingAgent
 orch_prompt = """
 You are an intelligent machine learning assistant that guides users through setting up ML tasks. Your job is to have a professional, efficient conversation to collect the **minimum required information** so that specialized agents (like EdaAgent, FeatureEngineeringAgent, and ModelTrainingAgent) can take over.
 
-🎯 Your responsibilities:
+Your responsibilities:
 - Determine the **intent** of the user: Do they want to run EDA, do feature engineering, train a model, or run a full pipeline?
 - Collect only essential input:
   - Dataset directory path (e.g., `./data/train.csv`)
@@ -45,12 +47,12 @@ You are an intelligent machine learning assistant that guides users through sett
   - Type of task (e.g., `regression`, `classification`, `clustering`, `reinforcement learning`)
   - Target column, if the task is supervised
 
-🧠 What *not* to do:
+What *not* to do:
 - Do **not** suggest or select specific models or metrics — that is the job of downstream agents.
 - Do **not** ask the user for algorithms, architectures, or training details.
 - Do **not** continue once enough information is collected.
 
-✅ When you have everything:
+When you have everything:
 - Confirm with the user
 - Return the following fields:
   - `data_path`
@@ -93,6 +95,13 @@ class Orchestrator:
 
         self.file_memory = MLTaskFileMemory()
 
+        with open("configs/config.json", "r") as f:
+            config = json.load(f)
+
+        # self.api_key = config["openai_api_key"]
+        os.environ['OPENAI_API_KEY'] = config["openai_api_key"]
+        self.model_name = config['openai_model_name']
+
     def prompt_template_getter(self):
         return ChatPromptTemplate.from_messages([
             ("system", orch_prompt),
@@ -100,35 +109,33 @@ class Orchestrator:
         ])
 
     def call_model(self, state: dict):
+        client = OpenAI()
+        model = init_chat_model(self.model_name, model_provider="openai")
         prompt = self.prompt_template_getter().invoke({"messages": state["messages"]})
         response = model.invoke(prompt)
         return {"messages": state["messages"] + [response]}
 
     def is_info_complete(self, info: dict):
-        required_fields = ["dataset_path", "task_intent", "agents_to_call"]
+        required_fields = ["dataset_path", "task_type", "agents_to_call"]
         return all(info.get(field) for field in required_fields)
 
     def call_agents(self, info: dict, thread_id):
         for agent in info["agents_to_call"]:
             print(agent)
             if agent == "EDAAgent":
-                print("📊 Calling EDA Agent...")
+                print("Calling EDA Agent...")
                 # eda_agent.run(info["data_path"]) or enqueue job
                 eda_agent = EDAAgent(thread_id)
                 eda_agent.run()
 
-            elif agent == "FeatureEngineeringAgent":
-                print("🛠️ Calling Feature Engineering Agent...")
-                # feature_engineer.run(info["data_path"])
-
             elif agent == "ModelTrainingAgent":
-                print("🤖 Calling Model Training Agent...")
+                print("Calling Model Training Agent...")
                 # model_trainer.run(info["data_path"], info["target_column"])
                 model_training = ModelTrainingAgent(thread_id)
                 model_training.run()
 
             else:
-                print(f"⚠️ Unknown agent: {agent}")
+                print(f"Unknown agent: {agent}")
 
     def get_response(self, thread_id, query):
 
@@ -159,12 +166,12 @@ class Orchestrator:
             print("All required fields collected. Calling downstream tools...")
             print(json.dumps(info, indent=2))  # Show current info to user
 
-            confirm = input("⚠️ Do you want to proceed with these settings? (yes/no): ").strip().lower()
+            confirm = input("Do you want to proceed with these settings? (yes/no): ").strip().lower()
             if confirm == "yes":
-                print("🚀 Proceeding with downstream agents...")
+                print("Proceeding with downstream agents...")
                 self.call_agents(info, thread_id)
             else:
-                print("⏹️ Process halted. You can provide more input to adjust settings.")
+                print("Process halted. You can provide more input to adjust settings.")
 
 
         config = {"configurable": {"thread_id": thread_id}}
@@ -176,16 +183,6 @@ class Orchestrator:
         output = self.app.invoke(state, config)
 
         self.file_memory.save_messages(thread_id, output["messages"])
-
-        # json_file_path = f"./ml_task_memory/info_{thread_id}.json"
-
-        
-
-        # # Create file with default structure if it doesn't exist
-
-        # if not os.path.exists(json_file_path):
-        #     with open(json_file_path, "w") as f:
-        #         json.dump(default_info, f, indent=2)
 
         response = ie(query, thread_id)
 

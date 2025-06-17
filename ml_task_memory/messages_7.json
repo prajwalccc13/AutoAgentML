@@ -2,7 +2,7 @@
   {
     "type": "human",
     "data": {
-      "content": "data/Crop_Yield_Prediction.csv, data is of type csv, task intent is tabular regression and target column is Yield",
+      "content": "hello",
       "additional_kwargs": {},
       "response_metadata": {},
       "type": "human",
@@ -14,15 +14,15 @@
   {
     "type": "ai",
     "data": {
-      "content": "Thank you for the information. To proceed, I will set the task as full pipeline for regression on your CSV data, with \"Yield\" as the target column. \n\nHere is a summary:\n- Data path: `data/Crop_Yield_Prediction.csv`\n- Data type: `csv`\n- Task type: `regression`\n- Target column: `Yield`\n- Task intent: `full_pipeline`\n- Agents to call: `[\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]`\n\nPlease confirm if this is correct or let me know if you'd like any adjustments.",
+      "content": "Hello! How can I assist you with your machine learning task today? Do you want to run EDA, do feature engineering, train a model, or run a full pipeline?",
       "additional_kwargs": {
         "refusal": null
       },
       "response_metadata": {
         "token_usage": {
-          "completion_tokens": 122,
-          "prompt_tokens": 442,
-          "total_tokens": 564,
+          "completion_tokens": 36,
+          "prompt_tokens": 410,
+          "total_tokens": 446,
           "completion_tokens_details": {
             "accepted_prediction_tokens": 0,
             "audio_tokens": 0,
@@ -34,23 +34,275 @@
             "cached_tokens": 0
           }
         },
-        "model_name": "gpt-4.1-nano-2025-04-14",
-        "system_fingerprint": "fp_38343a2f8f",
-        "id": "chatcmpl-BjL8cqAjCgYSYafWCgYtFKxCDmyok",
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjQVymIAEQY85pu420OSA7i7cU2RF",
         "service_tier": "default",
         "finish_reason": "stop",
         "logprobs": null
       },
       "type": "ai",
       "name": null,
-      "id": "run--a22b3411-ae04-47b4-bfdd-8d7673d9feea-0",
+      "id": "run--d31475da-169f-415f-8df2-b554e44ed627-0",
       "example": false,
       "tool_calls": [],
       "invalid_tool_calls": [],
       "usage_metadata": {
-        "input_tokens": 442,
-        "output_tokens": 122,
-        "total_tokens": 564,
+        "input_tokens": 410,
+        "output_tokens": 36,
+        "total_tokens": 446,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "full pipeline",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Great! For a full pipeline, I'll need a few details:\n\n1. What is the path to your dataset? (e.g., ./data/train.csv)\n2. What type of data are you working with? (e.g., csv, images, text, etc.)\n3. What type of task are you aiming to solve? (e.g., regression, classification, clustering, reinforcement learning)\n4. If it's a supervised task, what is the target column? \n\nPlease provide this information so I can confirm everything for you.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 107,
+          "prompt_tokens": 456,
+          "total_tokens": 563,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjQWCvezO0kF54n56ECL5WQDTKLqj",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--a5bba657-f4e6-4682-a4ff-d2abe1de627f-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 456,
+        "output_tokens": 107,
+        "total_tokens": 563,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "data/banana_quality.csv",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you. Could you please specify:\n\n1. The type of data (Is it a csv file, images, text, etc.)?\n2. The type of task you want to solve (regression, classification, clustering, reinforcement learning)?\n3. The target column you want to predict (if this is a supervised task)?",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 66,
+          "prompt_tokens": 576,
+          "total_tokens": 642,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjQWW8T5dQUBXddGpR13TFttUz3eK",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--25a136ea-2fe9-4c1c-9866-39ceb81b3df4-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 576,
+        "output_tokens": 66,
+        "total_tokens": 642,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "type of data is csv, target column is Quality and task type is classification",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for the information. To confirm:\n\n- data_path: data/banana_quality.csv\n- data_type: csv\n- task_type: classification\n- target_column: Quality\n- task_intent: full_pipeline\n- agents_to_call: [\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]\n\nIs everything correct? If so, I will pass these details along to the respective agents.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 83,
+          "prompt_tokens": 665,
+          "total_tokens": 748,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjQXPY4s65GuKczu6xYYECW41jy6b",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--2d379038-e337-467f-8f3a-4370cb0f1f40-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 665,
+        "output_tokens": 83,
+        "total_tokens": 748,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  },
+  {
+    "type": "human",
+    "data": {
+      "content": "okay",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": null,
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for confirming. Here are the details collected:\n\n- data_path: data/banana_quality.csv\n- data_type: csv\n- task_type: classification\n- target_column: Quality\n- task_intent: full_pipeline\n- agents_to_call: [\"EdaAgent\", \"FeatureEngineeringAgent\", \"ModelTrainingAgent\"]\n\nI will proceed with these specifications.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 74,
+          "prompt_tokens": 757,
+          "total_tokens": 831,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "model_name": "gpt-4.1-2025-04-14",
+        "system_fingerprint": "fp_51e1070cf2",
+        "id": "chatcmpl-BjQaowWwgoWEmSQEqqMDvdVK4BelT",
+        "service_tier": "default",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "run--0b0e11ef-d078-4471-ace7-8c8b8926c556-0",
+      "example": false,
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 757,
+        "output_tokens": 74,
+        "total_tokens": 831,
         "input_token_details": {
           "audio": 0,
           "cache_read": 0

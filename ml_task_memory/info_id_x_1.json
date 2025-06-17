@@ -1,16 +1,16 @@
 {
-  "session_id": 7,
-  "dataset_path": "data/banana_quality.csv",
-  "target_column": "Quality",
+  "session_id": "id_x_1",
+  "dataset_path": "./data/iris.csv",
+  "target_column": null,
   "task_type": "classification",
-  "task_intent": null,
+  "task_intent": "variety",
   "agents_to_call": [
     "EDAAgent",
     "FeatureEngineeringAgent",
     "ModelTrainingAgent"
   ],
-  "model_type": "auto",
-  "metrics": "auto",
+  "model_type": null,
+  "metrics": null,
   "status": "init",
   "timestamp": null
 }

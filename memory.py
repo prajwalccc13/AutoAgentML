@@ -2,6 +2,7 @@ from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, messag
 import os 
 import json
 from datetime import datetime
+from typing import List, Optional
 
 # === FILE MEMORY ===
 class MLTaskFileMemory:
