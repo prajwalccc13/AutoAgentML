@@ -41,7 +41,7 @@ python chat.py
 
 Now, you can chat.
 
-General Chat Steps example:
+### General Chat Steps example:
 **The entire logs, code and artifacts can be found at "data/thread_id". So, for this example check "data/7".**
 **Message logs and extracted informations can be found at ml_task_memory. **
 ```
@@ -106,7 +106,10 @@ You:okay
 Process Starts. You will be Notified once the process completes.
 ```
 
-
+## Execution Example:
+You can check out 2 execution examples at "orchestrator.ipynb" file. The example is provided at the bottom of the notebook under Evaluations section.
+- It shows how code verifier goes over multiple steps to correct the code.
+- The successful execution.
 
 
 
