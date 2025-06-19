@@ -42,7 +42,7 @@ python chat.py
 Now, you can chat.
 
 ### General Chat Steps example:
-**The entire logs, code and artifacts can be found at "data/thread_id". So, for this example check "data/7".**
+**The entire logs, code and artifacts can be found at "output/thread_id". So, for this example check "output/7".**
 **Message logs and extracted informations can be found at ml_task_memory.**
 ```
 Do You want to access previous chats (yes or no): no
