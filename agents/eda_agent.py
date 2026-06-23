@@ -1,11 +1,15 @@
 import json
 import re
 import os
+import sys
 from openai import OpenAI
 from langchain_openai import ChatOpenAI
 from utils.code_extractor import extract_python_code
 from utils.code_saver import save_code
 from utils.code_executor import PythonCodeExecutor
+
+# current_env = os.environ.copy()
+
 
 class EDAAgent:
     def __init__(self, thread_id):
@@ -94,7 +98,9 @@ class EDAAgent:
         file_path = f"./output/{self.thread_id}/eda.py"
         save_code(file_path, extracted_code[0])
 
+        # executor = PythonCodeExecutor()
         executor = PythonCodeExecutor()
+
         code = extracted_code[0]
         result = executor.execute(code)
 
