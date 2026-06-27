@@ -1,5 +1,5 @@
 {
-    "openai_api_key": "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",
+    "openai_api_key": "",
     "openai_model_name": "gpt-5.4-nano",
     "available_agents": [
         "EDAAgent",
