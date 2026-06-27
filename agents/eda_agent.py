@@ -7,6 +7,8 @@ from langchain_openai import ChatOpenAI
 from utils.code_extractor import extract_python_code
 from utils.code_saver import save_code
 from utils.code_executor import PythonCodeExecutor
+from agents.code_verifier_agent import CodeVerifierAgent
+
 
 # current_env = os.environ.copy()
 
@@ -52,6 +54,7 @@ class EDAAgent:
             - Avoid tasks that only generate visualizations unless the underlying data/summary is also saved as JSON.
             - Each task should be written as a single string, achievable via Python, and focus on producing outputs that can be consumed programmatically by downstream agents.
             - Do not output code, explanations, or any text outside the Python list of task descriptions.
+            - Do not add too much jargon. Just enough information that is necessary for next steps.
 
             Output format:
             A Python list of EDA task descriptions as strings, with each task specifically designed so its results are logged into a JSON file for use by downstream agents. 
@@ -95,13 +98,32 @@ class EDAAgent:
 
         extracted_code = extract_python_code(code_gen_response.output_text)
 
+        # Execute code and verify
+        for i in range(4):
+            print(f"attempt: {i} ------>")
+            executor = PythonCodeExecutor()
+            code = extracted_code[0]
+            result = executor.execute(code)
+            success = result.success
+
+            print('----------------')
+            print(result.stderr)
+            print('----------------')
+
+            if not success:
+                # verify code
+                codevef = CodeVerifierAgent(self.thread_id, list_text, code, result.stderr)
+                extracted_code = codevef.run()
+            else:
+                break
+
         file_path = f"./output/{self.thread_id}/eda.py"
         save_code(file_path, extracted_code[0])
 
+        # # executor = PythonCodeExecutor()
         # executor = PythonCodeExecutor()
-        executor = PythonCodeExecutor()
 
-        code = extracted_code[0]
-        result = executor.execute(code)
+        # code = extracted_code[0]
+        # result = executor.execute(code)
 
-        print(result.stderr)
+        # print(result.stderr)
