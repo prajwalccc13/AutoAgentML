@@ -33,7 +33,7 @@ from openai import OpenAI
 from tools.info_extractor import info_extractor as ie
 
 from agents.eda_agent import EDAAgent
-from agents.model_training_agent import ModelTrainingAgent
+from agents.model_training_agent_old import ModelTrainingAgent
 
 
 orch_prompt = """

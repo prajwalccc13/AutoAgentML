@@ -1,6 +1,6 @@
 {
-    "openai_api_key": "",
-    "openai_model_name": "gpt-4.1",
+    "openai_api_key": "***REMOVED-LEAKED-API-KEY***",
+    "openai_model_name": "gpt-5.4-nano",
     "available_agents": [
         "EDAAgent",
         "FeatureEngineeringAgent",
