@@ -1,32 +1,27 @@
 import json
-import re
+import logging
 import os
-import sys
 from openai import OpenAI
-from langchain_openai import ChatOpenAI
 from utils.code_extractor import extract_python_code
 from utils.code_saver import save_code
 from utils.code_executor import PythonCodeExecutor
+from utils.config import get_model_name
+from utils.constants import MAX_CODE_FIX_ATTEMPTS
 from agents.code_verifier_agent import CodeVerifierAgent
 
-
-# current_env = os.environ.copy()
+logger = logging.getLogger(__name__)
 
 
 class EDAAgent:
     def __init__(self, thread_id):
-
-        with open("configs/config.json", "r") as f:
-            config = json.load(f)
-
-        # self.api_key = config["openai_api_key"]
-        os.environ['OPENAI_API_KEY'] = config["openai_api_key"]
-        self.model_name = config['openai_model_name']
+        self.model_name = get_model_name()
 
         self.thread_id = thread_id
-        self.info_json = f"./ml_task_memory/info_{self.thread_id}.json"
-        self.agent_output_dir = f"./output/{self.thread_id}/"
+        self.info_json = os.path.abspath(f"./ml_task_memory/info_{self.thread_id}.json")
+        self.agent_output_dir = os.path.abspath(f"./output/{self.thread_id}") + os.sep
         self.agent_output_filename = 'eda_agent.json'
+
+        os.makedirs(self.agent_output_dir, exist_ok=True)
 
 
     def get_response(self, prompt):
@@ -99,31 +94,18 @@ class EDAAgent:
         extracted_code = extract_python_code(code_gen_response.output_text)
 
         # Execute code and verify
-        for i in range(4):
-            print(f"attempt: {i} ------>")
-            executor = PythonCodeExecutor()
+        for i in range(MAX_CODE_FIX_ATTEMPTS):
+            logger.info("EDA code execution attempt %d/%d", i + 1, MAX_CODE_FIX_ATTEMPTS)
+            executor = PythonCodeExecutor(timeout=120, working_dir=self.agent_output_dir)
             code = extracted_code[0]
             result = executor.execute(code)
-            success = result.success
 
-            print('----------------')
-            print(result.stderr)
-            print('----------------')
-
-            if not success:
-                # verify code
-                codevef = CodeVerifierAgent(self.thread_id, list_text, code, result.stderr)
-                extracted_code = codevef.run()
-            else:
+            if result.success:
                 break
 
-        file_path = f"./output/{self.thread_id}/eda.py"
+            logger.warning("Execution failed:\n%s", result.stderr)
+            codevef = CodeVerifierAgent(self.thread_id, list_text, code, result.stderr)
+            extracted_code = codevef.run()
+
+        file_path = os.path.join(self.agent_output_dir, "eda.py")
         save_code(file_path, extracted_code[0])
-
-        # # executor = PythonCodeExecutor()
-        # executor = PythonCodeExecutor()
-
-        # code = extracted_code[0]
-        # result = executor.execute(code)
-
-        # print(result.stderr)

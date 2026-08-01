@@ -1,33 +1,30 @@
 import json
+import logging
 import re
-import os
+
 from openai import OpenAI
 
-# Load API key from config
-with open("configs/config.json", "r") as f:
-    config = json.load(f)
+from utils.config import get_model_name, load_config
 
-api_key = config["openai_api_key"]
-os.environ['OPENAI_API_KEY'] = config["openai_api_key"]
+logger = logging.getLogger(__name__)
 
-# Initialize OpenAI client
 
 def info_extractor(query, thread_id):
-    json_file_path = f"./ml_task_memory/info_{thread_id}.json"
+    model_name = get_model_name()
 
+    json_file_path = f"./ml_task_memory/info_{thread_id}.json"
     with open(json_file_path, 'r') as f:
         json_file = json.load(f)
 
-    with open('./configs/config.json', 'r') as f:
-        agents_json = json.load(f)
+    available_agents = load_config()["available_agents"]
 
     prompt = f"""
-        You are an expert data entry handler. Now you have to extract information and fill the json file. 
+        You are an expert data entry handler. Now you have to extract information and fill the json file.
 
         The Json File is here:
             {json.dumps(json_file, indent=2)}
 
-        Available Agents: {agents_json['available_agents']}
+        Available Agents: {available_agents}
 
 
         - Now based the query extract and fill the information from the user input. 
@@ -41,7 +38,7 @@ def info_extractor(query, thread_id):
     client = OpenAI()
 
     response = client.chat.completions.create(
-        model="gpt-4.1-nano-2025-04-14",  # Or your desired model
+        model=model_name,
         messages=[
             {"role": "system", "content": "You update JSON data based on user instructions."},
             {"role": "user", "content": prompt}
@@ -56,8 +53,7 @@ def info_extractor(query, thread_id):
     try:
         updated_json = json.loads(json_str)
     except json.JSONDecodeError as e:
-        print("JSON parse failed:", e)
-        print("Returned content:", output_text)
+        logger.error("JSON parse failed: %s\nReturned content: %s", e, output_text)
         return None
 
     with open(json_file_path, 'w') as f:

@@ -1,39 +1,21 @@
-from langgraph.checkpoint.memory import MemorySaver
-from langgraph.graph import START, MessagesState, StateGraph
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.messages import HumanMessage, AIMessage
-from typing import Sequence
+import json
+import logging
+import os
 
-from langchain_core.messages import BaseMessage
-from langgraph.graph.message import add_messages
-from typing_extensions import Annotated, TypedDict
-from langchain_core.messages import BaseMessage
+from langgraph.checkpoint.memory import MemorySaver
+from langgraph.graph import START, StateGraph
+from langchain_core.messages import HumanMessage
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chat_models import init_chat_model
 
-from typing import Optional
-from pydantic import BaseModel
-import re
-from datetime import datetime
-
-import os
-import re
-import json
-from datetime import datetime
-from typing import List, Optional
-
-from langgraph.graph import StateGraph, START
-# from langgraph.checkpoint import MemorySaver
-from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, messages_from_dict, message_to_dict
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-
 from memory import MLTaskFileMemory
-from openai import OpenAI
-
-
 from tools.info_extractor import info_extractor as ie
+from utils.config import get_model_name
 
 from agents.eda_agent import EDAAgent
-from agents.model_training_agent_old import ModelTrainingAgent
+from agents.model_training_agent import ModelTrainingAgent
+
+logger = logging.getLogger(__name__)
 
 
 orch_prompt = """
@@ -70,19 +52,6 @@ Respond in a professional and concise tone.
 
 """
 
-prompt_template = ChatPromptTemplate.from_messages(
-            [
-                (
-                    "system",
-                    orch_prompt,
-                ),
-                MessagesPlaceholder(variable_name="messages"),
-            ]
-        )
-
-
-
-
 # === ORCHESTRATOR ===
 class Orchestrator:
     def __init__(self):
@@ -95,12 +64,8 @@ class Orchestrator:
 
         self.file_memory = MLTaskFileMemory()
 
-        with open("configs/config.json", "r") as f:
-            config = json.load(f)
-
-        # self.api_key = config["openai_api_key"]
-        os.environ['OPENAI_API_KEY'] = config["openai_api_key"]
-        self.model_name = config['openai_model_name']
+        self.model_name = get_model_name()
+        self.chat_model = init_chat_model(self.model_name, model_provider="openai")
 
     def prompt_template_getter(self):
         return ChatPromptTemplate.from_messages([
@@ -109,40 +74,35 @@ class Orchestrator:
         ])
 
     def call_model(self, state: dict):
-        client = OpenAI()
-        model = init_chat_model(self.model_name, model_provider="openai")
         prompt = self.prompt_template_getter().invoke({"messages": state["messages"]})
-        response = model.invoke(prompt)
+        response = self.chat_model.invoke(prompt)
         return {"messages": state["messages"] + [response]}
 
     def is_info_complete(self, info: dict):
-        required_fields = ["dataset_path", "task_type", "agents_to_call"]
+        required_fields = ["data_path", "task_type", "agents_to_call"]
         return all(info.get(field) for field in required_fields)
 
     def call_agents(self, info: dict, thread_id):
         for agent in info["agents_to_call"]:
-            print(agent)
             if agent == "EDAAgent":
-                print("Calling EDA Agent...")
-                # eda_agent.run(info["data_path"]) or enqueue job
+                logger.info("Calling EDA Agent...")
                 eda_agent = EDAAgent(thread_id)
                 eda_agent.run()
 
             elif agent == "ModelTrainingAgent":
-                print("Calling Model Training Agent...")
-                # model_trainer.run(info["data_path"], info["target_column"])
+                logger.info("Calling Model Training Agent...")
                 model_training = ModelTrainingAgent(thread_id)
                 model_training.run()
 
             else:
-                print(f"Unknown agent: {agent}")
+                logger.warning("Unknown agent: %s", agent)
 
     def get_response(self, thread_id, query):
 
         # Default structure if file does not exist
         default_info = {
             "session_id": thread_id,
-            "dataset_path": None,
+            "data_path": None,
             "target_column": None,
             "task_type": None,
             "task_intent": None,
@@ -163,16 +123,15 @@ class Orchestrator:
 
         
         if self.is_info_complete(info):
-            print("All required fields collected. Calling downstream tools...")
+            logger.info("All required fields collected. Calling downstream tools...")
             print(json.dumps(info, indent=2))  # Show current info to user
 
             confirm = input("Do you want to proceed with these settings? (yes/no): ").strip().lower()
             if confirm == "yes":
-                print("Proceeding with downstream agents...")
+                logger.info("Proceeding with downstream agents...")
                 self.call_agents(info, thread_id)
             else:
-                print("Process halted. You can provide more input to adjust settings.")
-
+                logger.info("Process halted. You can provide more input to adjust settings.")
 
         config = {"configurable": {"thread_id": thread_id}}
 
@@ -184,8 +143,6 @@ class Orchestrator:
 
         self.file_memory.save_messages(thread_id, output["messages"])
 
-        response = ie(query, thread_id)
-
-
+        ie(query, thread_id)
 
         return output

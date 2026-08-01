@@ -1,26 +1,16 @@
-import json
-import re
-import os
+import logging
 from openai import OpenAI
-from langchain_openai import ChatOpenAI
 from utils.code_extractor import extract_python_code
-from utils.code_saver import save_code
-from utils.code_executor import PythonCodeExecutor
+from utils.config import get_model_name
+
+logger = logging.getLogger(__name__)
+
 
 class CodeVerifierAgent:
     def __init__(self, thread_id, task_description, code, exec_error):
-
-        with open("configs/config.json", "r") as f:
-            config = json.load(f)
-
-        # self.api_key = config["openai_api_key"]
-        os.environ['OPENAI_API_KEY'] = config["openai_api_key"]
-        self.model_name = config['openai_model_name']
+        self.model_name = get_model_name()
 
         self.thread_id = thread_id
-        # self.info_json = f"./ml_task_memory/info_{self.thread_id}.json"
-        # self.eda_json_output = f"./output/{self.thread_id}/eda_agent.json"
-
         self.task_description = task_description
         self.code = code
         self.exec_error = exec_error
@@ -90,27 +80,15 @@ class CodeVerifierAgent:
 
 
     def run(self):
-        print('verifying code')
+        logger.info("Verifying code for thread %s", self.thread_id)
+
         # Plan the work
         planning_prompt = self.get_planning_prompt()
         plan_response = self.get_response(planning_prompt)
 
-        # print(plan_response.output_text)
-        
         # code generation
         list_text = plan_response.output_text
         code_gen_prompt = self.get_code_gen_prompt(list_text)
         code_gen_response = self.get_response(code_gen_prompt)
 
-        extracted_code = extract_python_code(code_gen_response.output_text)
-
-        return(extracted_code)
-
-        # file_path = f"./output/{self.thread_id}/model_training.py"
-        # save_code(file_path, extracted_code[0])
-
-        # executor = PythonCodeExecutor()
-        # code = extracted_code[0]
-        # result = executor.execute(code)
-
-        # print(result.stderr)
+        return extract_python_code(code_gen_response.output_text)

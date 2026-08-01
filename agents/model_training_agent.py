@@ -1,37 +1,31 @@
 import ast
 import json
+import logging
 import os
+
 from openai import OpenAI
 
 from utils.code_extractor import extract_python_code
 from utils.code_saver import save_code
 from utils.code_executor import PythonCodeExecutor
+from utils.config import get_model_name
+from utils.constants import MAX_CODE_FIX_ATTEMPTS
 from agents.code_verifier_agent import CodeVerifierAgent
+
+logger = logging.getLogger(__name__)
 
 
 class ModelTrainingAgent:
     def __init__(self, thread_id):
-        with open("configs/config.json", "r") as f:
-            config = json.load(f)
-
-        # self.api_key = os.getenv("OPENAI_API_KEY")
-        # if not self.api_key:
-        #     raise ValueError("OPENAI_API_KEY is not set")
-
-
-        # self.api_key = config["openai_api_key"]
-        os.environ['OPENAI_API_KEY'] = config["openai_api_key"]
-        self.model_name = config['openai_model_name']
-
-        # self.client = OpenAI(api_key=self.api_key)
-        self.model_name = config["openai_model_name"]
+        self.model_name = get_model_name()
+        self.client = OpenAI()
 
         self.thread_id = thread_id
-        self.info_json = f"./ml_task_memory/info_{self.thread_id}.json"
-        self.eda_json_output = f"./output/{self.thread_id}/eda_agent.json"
-        self.output_directory = f"./output/{self.thread_id}"
-        self.output_json = f"{self.output_directory}/model_training.json"
-        self.output_code_path = f"{self.output_directory}/model_training.py"
+        self.info_json = os.path.abspath(f"./ml_task_memory/info_{self.thread_id}.json")
+        self.output_directory = os.path.abspath(f"./output/{self.thread_id}")
+        self.eda_json_output = os.path.join(self.output_directory, "eda_agent.json")
+        self.output_json = os.path.join(self.output_directory, "model_training.json")
+        self.output_code_path = os.path.join(self.output_directory, "model_training.py")
 
         os.makedirs(self.output_directory, exist_ok=True)
 
@@ -193,16 +187,12 @@ Implementation guidance:
             )
 
         code = extracted_code[0]
-        executor = PythonCodeExecutor()
+        executor = PythonCodeExecutor(timeout=180, working_dir=self.output_directory)
         last_error = None
 
-        for i in range(4):
-            print(f"attempt: {i + 1} ------>")
+        for i in range(MAX_CODE_FIX_ATTEMPTS):
+            logger.info("Model training code execution attempt %d/%d", i + 1, MAX_CODE_FIX_ATTEMPTS)
             result = executor.execute(code)
-
-            print("---------------- stderr ----------------")
-            print(result.stderr)
-            print("----------------------------------------")
 
             if result.success:
                 save_code(self.output_code_path, code)
@@ -214,6 +204,7 @@ Implementation guidance:
                 }
 
             last_error = result.stderr
+            logger.warning("Execution failed:\n%s", result.stderr)
 
             verifier = CodeVerifierAgent(
                 self.thread_id,
@@ -235,5 +226,5 @@ Implementation guidance:
         save_code(self.output_code_path, code)
 
         raise RuntimeError(
-            f"ModelTrainingAgent failed after 4 attempts.\n\nLast error:\n{last_error}"
+            f"ModelTrainingAgent failed after {MAX_CODE_FIX_ATTEMPTS} attempts.\n\nLast error:\n{last_error}"
         )
