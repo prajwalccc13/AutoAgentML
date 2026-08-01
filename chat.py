@@ -1,10 +1,8 @@
 from orchestrator import Orchestrator
-import json
+from utils.chat_ids import thread_exists, create_thread_id
+from utils.logging_config import setup_logging
 
-
-# For thread ids
-with open("chat_ids.json", "r") as f:
-    config = json.load(f)
+setup_logging()
 
 # Ask if the user wants to do previous tasks
 while True:
@@ -13,20 +11,14 @@ while True:
     if which_chat == "yes":
         thread_id = int(input("Thread ID:"))
 
-        if thread_id in config['ids']:
+        if thread_exists(thread_id):
             break
 
         print('Thread Id not found:')
     elif which_chat == 'no':
-        config['last_id'] = config['last_id'] + 1
-        config['ids'].append(config['last_id'])
-
-        with open("chat_ids.json", 'w') as f:
-            json.dump(config, f, indent=4)
-
-        thread_id = config['last_id']
+        thread_id = create_thread_id()
         break
-    else: 
+    else:
         print("Please Enter Valid option:")
 
 

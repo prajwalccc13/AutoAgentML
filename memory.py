@@ -1,8 +1,8 @@
-from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, messages_from_dict, message_to_dict
-import os 
+from langchain_core.messages import BaseMessage, messages_from_dict, message_to_dict
+import os
 import json
 from datetime import datetime
-from typing import List, Optional
+from typing import List
 
 # === FILE MEMORY ===
 class MLTaskFileMemory:
