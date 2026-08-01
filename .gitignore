@@ -4,3 +4,4 @@ output/
 ml_task_memory/
 __pycache__/
 configs/
+*.lock
