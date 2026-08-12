@@ -1,113 +1,77 @@
-import ast
 import json
-import logging
 import os
 
-from openai import OpenAI
+from agents.graph import AgentSpec
+from utils.json_context import summarize_json
+from utils.paths import info_json_path, output_dir, stage_output_path
 
-from utils.code_extractor import extract_python_code
-from utils.code_saver import save_code
-from utils.code_executor import PythonCodeExecutor
-from utils.config import get_model_name
-from utils.constants import MAX_CODE_FIX_ATTEMPTS
-from agents.code_verifier_agent import CodeVerifierAgent
-
-logger = logging.getLogger(__name__)
+CODE_FILENAME = "model_training.py"
+OUTPUT_JSON_FILENAME = "model_training.json"
+EDA_OUTPUT_FILENAME = "eda_agent.json"
+FEATURE_ENGINEERING_OUTPUT_FILENAME = "feature_engineering.json"
 
 
-class ModelTrainingAgent:
-    def __init__(self, thread_id):
-        self.model_name = get_model_name()
-        self.client = OpenAI()
+def _load_upstream_context(thread_id):
+    info_path = info_json_path(thread_id)
+    eda_path = stage_output_path(thread_id, EDA_OUTPUT_FILENAME)
+    fe_path = stage_output_path(thread_id, FEATURE_ENGINEERING_OUTPUT_FILENAME)
 
-        self.thread_id = thread_id
-        self.info_json = os.path.abspath(f"./ml_task_memory/info_{self.thread_id}.json")
-        self.output_directory = os.path.abspath(f"./output/{self.thread_id}")
-        self.eda_json_output = os.path.join(self.output_directory, "eda_agent.json")
-        self.output_json = os.path.join(self.output_directory, "model_training.json")
-        self.output_code_path = os.path.join(self.output_directory, "model_training.py")
+    if not os.path.exists(info_path):
+        raise FileNotFoundError(f"Info JSON not found: {info_path}")
 
-        os.makedirs(self.output_directory, exist_ok=True)
+    if not os.path.exists(eda_path):
+        raise FileNotFoundError(f"EDA JSON not found: {eda_path}")
 
-    def get_response(self, prompt: str) -> str:
-        response = self.client.responses.create(
-            model=self.model_name,
-            input=prompt
-        )
+    with open(info_path, "r") as f:
+        info_data = json.load(f)
 
-        text = getattr(response, "output_text", None)
-        if text and text.strip():
-            return text.strip()
+    with open(eda_path, "r") as f:
+        eda_data = json.load(f)
 
-        try:
-            chunks = []
-            for item in getattr(response, "output", []):
-                for content in getattr(item, "content", []):
-                    if getattr(content, "type", None) in ("output_text", "text"):
-                        value = getattr(content, "text", None)
-                        if isinstance(value, str):
-                            chunks.append(value)
-                        elif hasattr(value, "value"):
-                            chunks.append(value.value)
-            final_text = "\n".join(chunk for chunk in chunks if chunk).strip()
-            if final_text:
-                return final_text
-        except Exception:
-            pass
+    fe_data = None
+    if os.path.exists(fe_path):
+        with open(fe_path, "r") as f:
+            fe_data = json.load(f)
 
-        raise ValueError("No text content returned from OpenAI response.")
+    return info_data, eda_data, fe_data
 
-    def parse_plan(self, plan_text: str):
-        try:
-            tasks = ast.literal_eval(plan_text)
-            if not isinstance(tasks, list):
-                raise ValueError("Planner output is not a list.")
-            if not all(isinstance(task, str) for task in tasks):
-                raise ValueError("Planner output must be a list of strings.")
-            if not tasks:
-                raise ValueError("Planner returned an empty task list.")
-            return tasks
-        except Exception as e:
-            raise ValueError(
-                f"Planner did not return a valid Python list of strings.\n\n"
-                f"Raw output:\n{plan_text}"
-            ) from e
 
-    def get_planning_prompt(self):
-        if not os.path.exists(self.info_json):
-            raise FileNotFoundError(f"Info JSON not found: {self.info_json}")
+def _build_planning_prompt(thread_id) -> str:
+    info_data, eda_data, fe_data = _load_upstream_context(thread_id)
+    output_json_path = stage_output_path(thread_id, OUTPUT_JSON_FILENAME)
+    eda_path = stage_output_path(thread_id, EDA_OUTPUT_FILENAME)
 
-        if not os.path.exists(self.eda_json_output):
-            raise FileNotFoundError(f"EDA JSON not found: {self.eda_json_output}")
+    fe_section = ""
+    if fe_data is not None:
+        fe_path = stage_output_path(thread_id, FEATURE_ENGINEERING_OUTPUT_FILENAME)
+        fe_section = f"""
+- Feature Engineering JSON (produced by a previous Feature Engineering agent — already-processed dataset path, fitted transformer artifacts, and selected features; large collections below are summarized/truncated for length, the full data is still on disk at {fe_path}):
+{summarize_json(fe_data)}
 
-        with open(self.eda_json_output, "r") as f:
-            eda_data = json.load(f)
+- A Feature Engineering agent has already run. Use its processed dataset and transformer artifacts instead of repeating preprocessing from scratch.
+"""
 
-        with open(self.info_json, "r") as f:
-            info_data = json.load(f)
-
-        prompt = f"""
+    return f"""
 You are an expert Machine Learning Engineer.
 
 Create a Python list of task descriptions as strings for training and evaluating machine learning models on structured tabular data.
 
 Context:
 - Info JSON:
-{json.dumps(info_data, indent=2)}
+{summarize_json(info_data)}
 
-- EDA JSON:
-{json.dumps(eda_data, indent=2)}
-
+- EDA JSON (large collections below are summarized/truncated for length, the full data is still on disk at {eda_path}):
+{summarize_json(eda_data)}
+{fe_section}
 Requirements:
-- Use the info JSON and EDA JSON as the source of truth.
+- Use the info JSON, EDA JSON{" and Feature Engineering JSON" if fe_data is not None else ""} as the source of truth.
 - Infer the machine learning task from info_json["task_intent"] if present.
 - Tasks must run sequentially.
 - Tasks must begin with loading the relevant dataset and metadata.
 - Include preprocessing, handling missing values, encoding, scaling if needed, feature selection if appropriate, train/test split, model training, evaluation, comparison across multiple models, and artifact saving.
 - Multiple suitable models must be trained and evaluated.
 - All outputs must be JSON serializable where logged.
-- Save all generated files inside: {self.output_directory}
-- Save the final structured training log to the exact path: {self.output_json}
+- Save the final structured training log to the exact path: {output_json_path}
 - Avoid visualization-only tasks unless the summary values are also saved in structured form.
 - Do not output explanations.
 - Output only a valid Python list of strings.
@@ -120,13 +84,15 @@ Example output format:
     "Train multiple suitable baseline models",
     "Evaluate models and save metrics in JSON-serializable format"
 ]
-"""
-        return prompt.strip()
+""".strip()
 
-    def get_code_gen_prompt(self, tasks):
-        task_block = "\n".join(f"- {task}" for task in tasks)
 
-        prompt = f"""
+def _build_code_gen_prompt(thread_id, tasks: list[str]) -> str:
+    task_block = "\n".join(f"- {task}" for task in tasks)
+    output_directory = output_dir(thread_id)
+    output_json_path = stage_output_path(thread_id, OUTPUT_JSON_FILENAME)
+
+    return f"""
 You are an expert Data Scientist and Machine Learning Engineer.
 
 Write a complete Python script that executes the following tasks in order:
@@ -134,10 +100,14 @@ Write a complete Python script that executes the following tasks in order:
 
 Strict requirements:
 - Read required inputs from these paths when needed:
-  - info JSON path: {self.info_json}
-  - EDA JSON path: {self.eda_json_output}
-- Save all generated outputs in: {self.output_directory}
-- Save the final structured JSON log to the exact path: {self.output_json}
+  - info JSON path: {info_json_path(thread_id)}
+  - EDA JSON path: {stage_output_path(thread_id, EDA_OUTPUT_FILENAME)}
+- Save all generated outputs in: {output_directory}
+- Save the final structured JSON log to the exact path: {output_json_path}
+- The JSON log MUST include a top-level key "pipeline_status" set to exactly "success" or "failed".
+  Use "failed" if no model could actually be trained and evaluated (e.g. required upstream artifacts
+  were missing or unusable) -- do not report "success" just because the script didn't crash. If
+  "failed", also include a top-level "pipeline_status_reason" key with a short explanation.
 - Ensure every value written to JSON is JSON serializable.
 - Create directories if needed.
 - Include all necessary imports.
@@ -154,77 +124,21 @@ Implementation guidance:
 - Use sensible preprocessing for tabular data.
 - Prefer robust, common libraries such as pandas, numpy, scikit-learn, and joblib.
 - Make sure the JSON log file always exists by the end of execution, even if partial results are recorded.
-"""
-        return prompt.strip()
 
-    def normalize_verifier_output(self, verifier_output):
-        if verifier_output is None:
-            return []
+Common serialization pitfall to avoid:
+- Before checking whether a value is missing/NaN, first check its type. Do not call `pandas.isna(value)`
+  directly on a value that might be a list/dict/array -- `pandas.isna()` on a list or array with more
+  than one element returns an array, not a bool, and using it in an `if` condition raises
+  `ValueError: The truth value of an array with more than one element is ambiguous`. Always check
+  `isinstance(value, (list, dict, tuple))` (or similar) before calling `pandas.isna()` on a scalar.
+""".strip()
 
-        if isinstance(verifier_output, list):
-            if verifier_output and all(isinstance(x, str) for x in verifier_output):
-                return verifier_output
-            return []
 
-        if isinstance(verifier_output, str):
-            return extract_python_code(verifier_output)
-
-        return []
-
-    def run(self):
-        planning_prompt = self.get_planning_prompt()
-        plan_text = self.get_response(planning_prompt)
-        tasks = self.parse_plan(plan_text)
-
-        code_gen_prompt = self.get_code_gen_prompt(tasks)
-        code_response_text = self.get_response(code_gen_prompt)
-
-        extracted_code = extract_python_code(code_response_text)
-        if not extracted_code:
-            raise ValueError(
-                "No Python code block found in code generation response.\n\n"
-                f"Raw output:\n{code_response_text}"
-            )
-
-        code = extracted_code[0]
-        executor = PythonCodeExecutor(timeout=180, working_dir=self.output_directory)
-        last_error = None
-
-        for i in range(MAX_CODE_FIX_ATTEMPTS):
-            logger.info("Model training code execution attempt %d/%d", i + 1, MAX_CODE_FIX_ATTEMPTS)
-            result = executor.execute(code)
-
-            if result.success:
-                save_code(self.output_code_path, code)
-                return {
-                    "success": True,
-                    "code_path": self.output_code_path,
-                    "json_output_path": self.output_json,
-                    "attempts": i + 1
-                }
-
-            last_error = result.stderr
-            logger.warning("Execution failed:\n%s", result.stderr)
-
-            verifier = CodeVerifierAgent(
-                self.thread_id,
-                tasks,
-                code,
-                result.stderr
-            )
-            verifier_output = verifier.run()
-            fixed_code_blocks = self.normalize_verifier_output(verifier_output)
-
-            if not fixed_code_blocks:
-                raise ValueError(
-                    "CodeVerifierAgent did not return valid Python code.\n\n"
-                    f"Verifier output:\n{verifier_output}"
-                )
-
-            code = fixed_code_blocks[0]
-
-        save_code(self.output_code_path, code)
-
-        raise RuntimeError(
-            f"ModelTrainingAgent failed after {MAX_CODE_FIX_ATTEMPTS} attempts.\n\nLast error:\n{last_error}"
-        )
+SPEC = AgentSpec(
+    name="ModelTrainingAgent",
+    code_filename=CODE_FILENAME,
+    output_json_filename=OUTPUT_JSON_FILENAME,
+    timeout=300,
+    build_planning_prompt=_build_planning_prompt,
+    build_code_gen_prompt=_build_code_gen_prompt,
+)

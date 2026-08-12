@@ -12,8 +12,7 @@ from memory import MLTaskFileMemory
 from tools.info_extractor import info_extractor as ie
 from utils.config import get_model_name
 
-from agents.eda_agent import EDAAgent
-from agents.model_training_agent import ModelTrainingAgent
+from agents.pipeline import run_pipeline
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +44,7 @@ When you have everything:
   - `agents_to_call` = list of selected agents based on intent
 
 Examples:
-- If user says: "I want to run EDA on ./data.csv" → set task_intent: `eda`, agents_to_call: `["EdaAgent"]`
+- If user says: "I want to run EDA on ./data.csv" → set task_intent: `eda`, agents_to_call: `["EDAAgent"]`
 - If user says: "I want to build a model to predict price from a CSV file" → set task_type: `regression`, task_intent: `full_pipeline`, collect target column
 
 Respond in a professional and concise tone.
@@ -83,19 +82,21 @@ class Orchestrator:
         return all(info.get(field) for field in required_fields)
 
     def call_agents(self, info: dict, thread_id):
-        for agent in info["agents_to_call"]:
-            if agent == "EDAAgent":
-                logger.info("Calling EDA Agent...")
-                eda_agent = EDAAgent(thread_id)
-                eda_agent.run()
+        json_file_path = f"./ml_task_memory/info_{thread_id}.json"
 
-            elif agent == "ModelTrainingAgent":
-                logger.info("Calling Model Training Agent...")
-                model_training = ModelTrainingAgent(thread_id)
-                model_training.run()
+        try:
+            run_pipeline(thread_id, info["agents_to_call"])
+        except Exception as e:
+            logger.exception("Pipeline execution failed for thread %s", thread_id)
+            print(f"\n[Pipeline failed] {type(e).__name__}: {e}\n")
+            info["status"] = "failed"
+            info["last_error"] = str(e)
+        else:
+            info["status"] = "completed"
+            info["last_error"] = None
 
-            else:
-                logger.warning("Unknown agent: %s", agent)
+        with open(json_file_path, "w") as f:
+            json.dump(info, f, indent=2)
 
     def get_response(self, thread_id, query):
 
@@ -110,6 +111,7 @@ class Orchestrator:
             "model_type": "auto",
             "metrics": "auto",
             "status": "init",
+            "last_error": None,
             "timestamp": None
         }
 

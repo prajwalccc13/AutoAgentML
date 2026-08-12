@@ -1,7 +1,7 @@
 import logging
-from openai import OpenAI
 from utils.code_extractor import extract_python_code
 from utils.config import get_model_name
+from utils.llm import call_llm
 
 logger = logging.getLogger(__name__)
 
@@ -14,16 +14,6 @@ class CodeVerifierAgent:
         self.task_description = task_description
         self.code = code
         self.exec_error = exec_error
-
-
-    def get_response(self, prompt):
-        client = OpenAI()
-        response = client.responses.create(
-            model=self.model_name,
-            input=prompt
-        )
-
-        return response
 
     def get_planning_prompt(self):
         prompt = f"""
@@ -56,12 +46,12 @@ class CodeVerifierAgent:
         return prompt
 
     def get_code_gen_prompt(self, plan):
-        prompt = f""""
+        prompt = f"""
         You are an expert in Python programming and debugging. Based on the detailed debugging plan you received, your task is to generate the corrected version of the provided code. The plan includes steps for resolving the execution error, fixing syntax issues, and improving the code structure. Please follow these guidelines:
 
             Task Description:
             {self.task_description}
-            
+
             Code:
             {self.code}
             Execution Error:
@@ -71,10 +61,13 @@ class CodeVerifierAgent:
             {plan}
 
             Follow the Debugging Plan: Use the steps outlined in the debugging plan to guide your corrections.
-            
 
-            Output: Provide the final corrected Python code that is ready to be executed without errors.
-        
+            Output requirements:
+            - Return the COMPLETE corrected script, not a snippet, diff, or partial excerpt.
+            - Every function, import, and section from the original code that is still needed must be
+              present in your output exactly as before, except for the parts you are fixing.
+            - Provide the final corrected Python code that is ready to be executed without errors.
+
         """
         return prompt
 
@@ -84,11 +77,10 @@ class CodeVerifierAgent:
 
         # Plan the work
         planning_prompt = self.get_planning_prompt()
-        plan_response = self.get_response(planning_prompt)
+        plan_text = call_llm(planning_prompt, self.model_name)
 
         # code generation
-        list_text = plan_response.output_text
-        code_gen_prompt = self.get_code_gen_prompt(list_text)
-        code_gen_response = self.get_response(code_gen_prompt)
+        code_gen_prompt = self.get_code_gen_prompt(plan_text)
+        code_gen_text = call_llm(code_gen_prompt, self.model_name)
 
-        return extract_python_code(code_gen_response.output_text)
+        return extract_python_code(code_gen_text)
