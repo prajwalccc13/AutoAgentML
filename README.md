@@ -1,4 +1,4 @@
-# Auto-Agent-ML: Autonomous ML Operations (AutoMLOps) Engine
+# Auto-Agent-ML: Autonomous, Language-Guided Machine Learning System Powered by LLMs
 AutoAgentML is an autonomous, language-guided multi-agent system designed to streamline the end-to-end machine learning lifecycle. By leveraging Large Language Models (LLMs) to generate executable Python workflows from natural language, this system functions as an accelerated R&D tool that automates repetitive data science tasks, reducing the time from raw data to validated models.
 
 ## Business Value
