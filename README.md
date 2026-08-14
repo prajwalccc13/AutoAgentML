@@ -1,5 +1,31 @@
-# Auto-Agent-ML: Autonomous, Language-Guided Machine Learning System Powered by LLMs
-Auto-Agent-ML aims to bridge this gap by providing simpler chat interface to user to gather only the important information like directory of dataset, target column and task intent. With only the minimal information Auto-Agent-ML can perform the full workflow of machine learning pipeline including exploratory data analysis, feature engineering and model training. 
+# Auto-Agent-ML: Autonomous ML Operations (AutoMLOps) Engine
+AutoAgentML is an autonomous, language-guided multi-agent system designed to streamline the end-to-end machine learning lifecycle. By leveraging Large Language Models (LLMs) to generate executable Python workflows from natural language, this system functions as an accelerated R&D tool that automates repetitive data science tasks, reducing the time from raw data to validated models.
+
+## Business Value
+- Operational Efficiency: Automates the "grunt work" of the ML lifecycle (EDA, preprocessing, and boilerplate training code), allowing senior data scientists to focus on high-level strategy.
+- Risk Mitigation: Features a central coordinator that enforces structured fault handling and verification at every stage, ensuring reliable and auditable pipeline behavior.
+- Accelerated Prototyping: Enables rapid experimentation by converting user intent into technical implementation in seconds, significantly cutting down the discovery-to-evaluation cycle.
+
+## Key Features
+- Autonomous Multi-Agent Pipeline: A modular architecture where specialized agents handle distinct stages: Data Exploration (EDA), Model Training, and Evaluation/Verification.
+- Central Coordinator Orchestration: Manages multiple system components to ensure reliable end-to-end performance and robust error recovery.
+- Natural Language Interface: Transforms complex requirements into executable Python code, democratizing sophisticated data analysis for non-technical stakeholders.
+- Comprehensive Lifecycle Automation: Handles everything from initial data exploration to final model verification within a unified workflow.
+
+## System Architecture
+The system is built on a Modular Multi-Agent framework, orchestrated to handle the complexities of the ML workflow:
+
+1. User Intent Layer: Captures natural language requirements.
+2. Orchestration Layer (Central Coordinator): Plans tasks, handles faults, and ensures reliable execution.
+3. Execution Layer: Generates and runs dynamic Python code for EDA, training, and evaluation.
+
+##  Technical Stack
+
+  - Language: Python
+  - AI Orchestration: Multi-Agent Systems, LLMs
+  - Data Science: Jupyter Notebooks, Scikit-Learn, PyTorch
+  - Workflow Automation: Dynamic Python code generation
+
 ## Create Conda Environment and install packages
 
 ```shell
@@ -31,7 +57,6 @@ pip install -r requirements.txt
 
 ## Add the OpenAI's Api Key 
 Navigate to configs/config.json file. Then, add api key in the field "openai_api_key".
-I have removed api key from the project since the project visibility is set to public. Please, mail me incase you require api key for marking.
 
 ## Run the chat app
 In the terminal
