@@ -131,10 +131,6 @@ You:okay
 Process Starts. You will be Notified once the process completes.
 ```
 
-## Execution Example:
-You can check out 2 execution examples at "orchestrator.ipynb" file. The example is provided at the bottom of the notebook under Evaluations section.
-- It shows how code verifier goes over multiple steps to correct the code.
-- The successful execution.
 
 
 
