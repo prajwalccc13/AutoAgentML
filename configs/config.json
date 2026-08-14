@@ -1,9 +1,0 @@
-{
-    "openai_api_key": "",
-    "openai_model_name": "gpt-5.4-nano",
-    "available_agents": [
-        "EDAAgent",
-        "FeatureEngineeringAgent",
-        "ModelTrainingAgent"
-    ]
-}

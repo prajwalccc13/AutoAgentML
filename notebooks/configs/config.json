@@ -1,8 +1,0 @@
-{
-    "openai_api_key": "***REMOVED-LEAKED-API-KEY***",
-    "available_agents": [
-        "EDAAgent",
-        "FeatureEngineeringAgent",
-        "ModelTrainingAgent"
-    ]
-}
