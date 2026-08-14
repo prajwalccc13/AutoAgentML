@@ -1,4 +1,5 @@
 notebooks/
+data/
 .venv/
 output/
 ml_task_memory/
