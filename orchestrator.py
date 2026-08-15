@@ -10,7 +10,7 @@ from langchain.chat_models import init_chat_model
 
 from memory import MLTaskFileMemory
 from tools.info_extractor import info_extractor as ie
-from utils.config import get_model_name
+from utils.config import get_llm_provider, get_model_name, get_ollama_base_url, get_ollama_num_ctx
 
 from agents.pipeline import run_pipeline
 
@@ -64,7 +64,18 @@ class Orchestrator:
         self.file_memory = MLTaskFileMemory()
 
         self.model_name = get_model_name()
-        self.chat_model = init_chat_model(self.model_name, model_provider="openai")
+        provider = get_llm_provider()
+
+        if provider == "ollama":
+            ollama_kwargs = {"base_url": get_ollama_base_url()}
+            num_ctx = get_ollama_num_ctx()
+            if num_ctx:
+                ollama_kwargs["num_ctx"] = num_ctx
+            self.chat_model = init_chat_model(
+                self.model_name, model_provider="ollama", **ollama_kwargs
+            )
+        else:
+            self.chat_model = init_chat_model(self.model_name, model_provider=provider)
 
     def prompt_template_getter(self):
         return ChatPromptTemplate.from_messages([
