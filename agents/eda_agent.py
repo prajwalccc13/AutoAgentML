@@ -2,7 +2,7 @@ import json
 
 from agents.graph import AgentSpec
 from utils.json_context import summarize_json
-from utils.paths import info_json_path, stage_output_path
+from utils.paths import info_json_path, resolve_dataset_path, stage_output_path
 
 CODE_FILENAME = "eda.py"
 OUTPUT_JSON_FILENAME = "eda_agent.json"
@@ -13,17 +13,19 @@ def _build_planning_prompt(thread_id) -> str:
     with open(path, "r") as f:
         info_data = json.load(f)
 
+    dataset_path = resolve_dataset_path(info_data)
     output_json_path = stage_output_path(thread_id, OUTPUT_JSON_FILENAME)
 
     return f"""
         You are an expert Data Scientist. Your task is to generate a step-by-step list of Exploratory Data Analysis (EDA) tasks tailored to the given data type, with a focus on supporting downstream agents for feature engineering, model training, and evaluation.
 
-        - All information about the data like dataset path, task intent, target column, etc. can be found in {path}.
+        - The dataset to analyze is located at this exact absolute path: {dataset_path}
+        - Task metadata (task type, target column, task intent, etc.) is listed below and is also saved at {path} -- that metadata file is NOT the dataset. Never load the metadata/info file as if it were the dataset.
 
         Requirements:
-        - Information about the data can be acessed from {summarize_json(info_data)}.
+        - Task metadata: {summarize_json(info_data)}.
         - All tasks should be designed so that their outputs (important textual or numeric summaries, statistics, or lists) are logged into a structured JSON file, not displayed.
-        - Tasks must begin with data loading and proceed through all essential EDA steps, including identifying data types, missing values, statistical summaries, cardinality, outlier detection, and any domain-specific EDA needed for modeling.
+        - Tasks must begin with loading the dataset from {dataset_path}, and proceed through all essential EDA steps, including identifying data types, missing values, statistical summaries, cardinality, outlier detection, and any domain-specific EDA needed for modeling.
         - Avoid tasks that only generate visualizations unless the underlying data/summary is also saved as JSON.
         - Each task should be written as a single string, achievable via Python, and focus on producing outputs that can be consumed programmatically by downstream agents.
         - Do not output code, explanations, or any text outside the Python list of task descriptions.
@@ -37,12 +39,27 @@ def _build_planning_prompt(thread_id) -> str:
 
 
 def _build_code_gen_prompt(thread_id, tasks: list[str]) -> str:
+    with open(info_json_path(thread_id), "r") as f:
+        info_data = json.load(f)
+    dataset_path = resolve_dataset_path(info_data)
+
     task_block = "\n".join(f"- {task}" for task in tasks)
     output_json_path = stage_output_path(thread_id, OUTPUT_JSON_FILENAME)
 
     return f"""
         You are an expert in Data Science and Machine Learning. Your task is to write Python code that performs the following EDA tasks in order:
         {task_block}
+
+        Dataset location:
+        - Load the dataset directly from this exact absolute path: {dataset_path}
+        - Do not load or treat any task-metadata/info JSON file as the dataset.
+
+        Defensive coding requirement:
+        - Initialize the complete JSON log dictionary structure (every top-level key you intend to
+          write into) at the very start of the script, before running any processing steps. This
+          ensures that if a later step fails partway through, every key your code references when
+          writing results (e.g. `results["some_section"]["value"] = ...`) already exists and won't
+          raise a KeyError.
 
         Logging and Saving Results:
         - Ensure that all relevant results and outputs are saved in a JSON file.

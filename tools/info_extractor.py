@@ -4,7 +4,7 @@ import re
 
 from openai import OpenAI
 
-from utils.config import get_model_name, load_config
+from utils.config import get_llm_client_kwargs, get_model_name, load_config
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +35,7 @@ def info_extractor(query, thread_id):
         User Input: {query}
     """
 
-    client = OpenAI()
+    client = OpenAI(**get_llm_client_kwargs())
 
     response = client.chat.completions.create(
         model=model_name,
